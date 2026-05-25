@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* ============================================================
+   CUSTOM CSS LAYER — Design tokens & global styles
+   Tailwind v4: @apply only works with built-in utilities,
+   custom classes must be pure CSS or inline Tailwind classes in JSX.
+   ============================================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(2 6 23);   /* slate-950 */
+    color: rgb(241 245 249);          /* slate-100 */
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: rgb(15 23 42); }
+  ::-webkit-scrollbar-thumb { background: rgb(71 85 105); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(148 163 184); }
+}
+
+/* ── Reusable CSS classes (pure CSS, no @apply) ───────────────── */
+
+/* Glassmorphism card */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #38bdf8, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Animated gradient border on hover */
+.glow-border {
+  position: relative;
+  z-index: 0;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #38bdf8, #a78bfa, #f472b6);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.glow-border:hover::before { opacity: 1; }
+
+/* Tag / badge pill */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgb(30 41 59);
+  border: 1px solid rgb(51 65 85);
+  color: rgb(56 189 248);
+}
+
+/* Section heading styles */
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.section-sub {
+  color: rgb(148 163 184);    /* slate-400 */
+  font-size: 1.125rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Animations ─────────────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(56,189,248,0.15); }
+  to   { box-shadow: 0 0 60px rgba(167,139,250,0.25); }
+}
+.animate-glow { animation: glow 3s ease-in-out infinite alternate; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+[data-animate] { animation: fadeInUp 0.4s ease forwards; }
+
+/* ── Background grid ────────────────────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(148,163,184,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Screen reader utility ───────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
