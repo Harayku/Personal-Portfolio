@@ -22,7 +22,7 @@ export default function About() {
           <div className="flex flex-col items-center gap-6">
             {/* REPLACE: Add your photo to /public/images/avatar.jpg */}
             <div className="relative w-52 h-52 rounded-3xl overflow-hidden animate-float">
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-500 to-violet-600 rounded-3xl" aria-hidden="true" />
+              <div className="absolute inset-0 bg-sky-500 rounded-3xl" aria-hidden="true" />
               {about.avatar ? (
                 <img
                   src={about.avatar}
@@ -112,7 +112,7 @@ export default function About() {
                 <ul className="space-y-2 list-none p-0 m-0">
                   {items.map((skill) => (
                     <li key={skill} className="flex items-center gap-2 text-sm text-slate-300">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-sky-400 to-violet-400 shrink-0" aria-hidden="true" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-sky-400 shrink-0" aria-hidden="true" />
                       {skill}
                     </li>
                   ))}

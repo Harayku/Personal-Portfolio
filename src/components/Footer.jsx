@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 font-extrabold text-lg">
-              <span className="p-1.5 rounded-lg bg-gradient-to-br from-sky-500 to-violet-600">
+              <span className="p-1.5 rounded-lg bg-sky-500">
                 <Code2 size={16} className="text-white" />
               </span>
               {/* REPLACE: Your name */}
@@ -94,7 +94,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm flex items-center gap-1.5">
-            Built with <Heart size={14} className="text-pink-500" aria-hidden="true" /> by{" "}
+            Built with <Heart size={14} className="text-sky-500" aria-hidden="true" /> by{" "}
             {/* REPLACE: Your name */}
             <span className="text-slate-400">Your Name</span> · {new Date().getFullYear()}
           </p>

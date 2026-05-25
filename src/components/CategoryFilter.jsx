@@ -52,7 +52,7 @@ export default function CategoryFilter({ categories, active, onChange, search, o
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500
                 ${
                   isActive
-                    ? "bg-gradient-to-r from-sky-500 to-violet-500 border-transparent text-white shadow-lg shadow-violet-500/25 scale-105"
+                    ? "bg-sky-500 border-transparent text-white shadow-lg shadow-sky-500/25 scale-105"
                     : "border-slate-700 text-slate-400 hover:border-sky-500 hover:text-sky-400 bg-transparent"
                 }
               `}

@@ -50,7 +50,7 @@ export default function Modal({ cert, onClose }) {
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" aria-hidden="true" />
 
       {/* Panel */}
-      <div className="relative glass rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-violet-900/30 animate-[fadeInUp_0.25s_ease]">
+      <div className="relative glass rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-sky-900/30 animate-[fadeInUp_0.25s_ease]">
 
         {/* Close button */}
         <button
@@ -73,8 +73,8 @@ export default function Modal({ cert, onClose }) {
                 onError={(e) => { e.currentTarget.style.display = "none" }}
               />
             ) : (
-              <div className="w-20 h-20 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center shrink-0">
-                <Award size={36} className="text-violet-400" />
+              <div className="w-20 h-20 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center shrink-0">
+                <Award size={36} className="text-sky-400" />
               </div>
             )}
             <div>
@@ -119,7 +119,7 @@ export default function Modal({ cert, onClose }) {
             </div>
             {cert.credentialId && (
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5 sm:col-span-2">
-                <Hash size={18} className="text-violet-400 mt-0.5 shrink-0" aria-hidden="true" />
+                <Hash size={18} className="text-sky-400 mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-xs text-slate-500 font-medium">Credential ID</p>
                   <p className="text-slate-200 font-mono text-sm">{cert.credentialId}</p>

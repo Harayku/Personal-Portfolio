@@ -24,8 +24,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
   const linkClass = ({ isActive }) =>
     `relative px-1 py-0.5 text-sm font-medium transition-colors duration-200 
-     after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r 
-     after:from-sky-400 after:to-violet-400 after:rounded-full after:transition-all after:duration-300
+     after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-sky-400
+     after:rounded-full after:transition-all after:duration-300
      hover:after:w-full hover:text-sky-400
      ${isActive ? "text-sky-400 after:w-full" : "text-slate-300"}`
 
@@ -45,7 +45,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           className="flex items-center gap-2 font-extrabold text-xl tracking-tight hover:opacity-80 transition-opacity"
           aria-label="Go to home page"
         >
-          <span className="p-1.5 rounded-lg bg-gradient-to-br from-sky-500 to-violet-600">
+          <span className="p-1.5 rounded-lg bg-sky-500">
             <Code2 size={18} className="text-white" aria-hidden="true" />
           </span>
           {/* REPLACE: Your name/brand */}

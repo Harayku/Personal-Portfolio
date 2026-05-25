@@ -65,7 +65,7 @@ export default function App() {
             element={
               <main className="min-h-screen flex items-center justify-center text-center px-4 pt-16" id="main-content">
                 <div>
-                  <p className="text-8xl font-extrabold gradient-text mb-4">404</p>
+                  <p className="text-8xl font-extrabold text-sky-400 mb-4">404</p>
                   <h1 className="text-2xl font-bold text-white mb-2">Page Not Found</h1>
                   <p className="text-slate-400 mb-6">The page you're looking for doesn't exist.</p>
                   <a href="/" className="btn-primary">Go Home</a>

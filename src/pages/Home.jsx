@@ -31,7 +31,7 @@ export default function Home() {
       >
         {/* Ambient glow orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-600/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
           {/* Availability badge */}
@@ -97,7 +97,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {highlights.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="glass rounded-2xl p-6 flex items-start gap-4 group hover:border-sky-500/30 transition-all duration-300">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500/10 to-violet-500/10 border border-sky-500/20 group-hover:border-sky-500/40 transition-all duration-300">
+              <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 group-hover:border-sky-500/40 transition-all duration-300">
                 <Icon size={24} className="text-sky-400" aria-hidden="true" />
               </div>
               <div>
@@ -140,7 +140,7 @@ export default function Home() {
       {/* ─── CTA BANNER ─────────────────────────────────────────────────── */}
       <section id="cta" aria-label="Call to action" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="glass animate-glow rounded-3xl p-10 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-sky-600/10 to-violet-600/10 rounded-3xl" aria-hidden="true" />
+          <div className="absolute inset-0 bg-sky-600/10 rounded-3xl" aria-hidden="true" />
           <div className="relative">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
               Let's Build Something Together

@@ -62,7 +62,7 @@ export default function ProjectCard({ item, onClick }) {
         {/* Certificate-specific: issuer + date */}
         {isCert && (
           <div className="flex items-center gap-2 text-sm text-slate-400">
-            <Award size={14} className="text-violet-400 shrink-0" aria-hidden="true" />
+            <Award size={14} className="text-sky-400 shrink-0" aria-hidden="true" />
             <span>{item.issuer}</span>
             {item.date && (
               <>
@@ -119,7 +119,7 @@ export default function ProjectCard({ item, onClick }) {
         )}
 
         {isCert && (
-          <p className="text-xs text-violet-400 font-medium pt-2 border-t border-white/5">
+          <p className="text-xs text-sky-400 font-medium pt-2 border-t border-white/5">
             Click to view certificate details →
           </p>
         )}
