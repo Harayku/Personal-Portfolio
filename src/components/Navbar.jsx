@@ -49,7 +49,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             <Code2 size={18} className="text-white" aria-hidden="true" />
           </span>
           {/* REPLACE: Your name/brand */}
-          <span className="gradient-text">YourName</span>
+          <span className="gradient-text">Jet Angelo Pagaduan</span>
         </Link>
 
         {/* Desktop nav links */}

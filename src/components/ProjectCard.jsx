@@ -8,7 +8,7 @@ import { GithubIcon } from "./SocialIcons"
  *   onClick  — optional click handler (used for certificate modal)
  */
 export default function ProjectCard({ item, onClick }) {
-  const isCert = item.category === "Cyber Certificates"
+  const isCert = item.category === "Cybersecurity"
 
   return (
     <article
