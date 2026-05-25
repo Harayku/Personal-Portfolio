@@ -5,18 +5,18 @@
 
 export const contact = {
   // REPLACE: The public-facing name shown on the contact page
-  contactName: "Your Name",
+  contactName: "Jet Angelo Pagaduan",
 
   // REPLACE: The email address displayed (not necessarily the receiving address)
-  displayEmail: "your.email@example.com",
+  displayEmail: "[EMAIL_ADDRESS]",
 
   // REPLACE: Location shown below the email
-  location: "Manila, Philippines",
+  location: "Valenzuela City, Philippines",
 
   // Social links shown on the contact page (set to null to hide)
   socials: {
-    github: "https://github.com/YOURUSERNAME",      // REPLACE
-    linkedin: "https://linkedin.com/in/YOURUSERNAME", // REPLACE
+    github: "https://github.com/Harayku",      // REPLACE
+    linkedin: "https://www.linkedin.com/in/jetpagaduan/", // REPLACE
     twitter: null,                                   // REPLACE or keep null
   },
 

@@ -5,10 +5,10 @@
 
 export const about = {
   // REPLACE: Your full name
-  name: "Your Name",
+  name: "Jet Angelo Pagaduan",
 
   // REPLACE: One-line tagline shown in the hero
-  tagline: "IT Student · Network Enthusiast · Game Developer",
+  tagline: "IT Student · Game Developer · CyberSecurity · Network Enthusiast",
 
   // REPLACE: Your avatar/profile photo — place in /public/images/
   avatar: "/images/avatar.jpg",
@@ -21,19 +21,19 @@ export const about = {
   ],
 
   // REPLACE: Your real location
-  location: "Manila, Philippines",
+  location: "Valenzuela City, Philippines",
 
   // REPLACE: Your professional email
-  email: "your.email@example.com",
+  email: "jetangelo04.jp@gmail.com",
 
   // REPLACE: Your GitHub username
-  github: "https://github.com/YOURUSERNAME",
+  github: "https://github.com/Harayku",
 
   // REPLACE: Your LinkedIn URL
-  linkedin: "https://linkedin.com/in/YOURUSERNAME",
+  linkedin: "https://www.linkedin.com/in/jetpagaduan/",
 
   // REPLACE: Twitter/X, optional — set to null to hide
-  twitter: null,
+  facebook: "https://www.facebook.com/profile.php?id=61590580520691",
 
   // REPLACE: Your CV/resume PDF — place in /public/
   resumeUrl: "/resume.pdf",
@@ -42,28 +42,31 @@ export const about = {
     // Group your skills; add/remove groups as needed
     {
       group: "Networking",
-      items: ["Cisco IOS", "VLANs / Trunking", "OSPF / RIP", "STP / RSTP", "Packet Tracer", "pfSense"],
-    },
-    {
-      group: "Programming",
-      items: ["C#", "JavaScript", "Python", "HTML / CSS", "React", "Node.js"],
+      items: ["VLANs / Trunking", "OSPF / RIP", "Packet Tracer"],
     },
     {
       group: "Cybersecurity",
-      items: ["Network Hardening", "ACLs / Firewall Rules", "Wireshark", "Nmap", "Suricata IDS"],
+      items: ["Kali Linux", "Nmap", "Wireshark", "Metasploit", "IDA/Ghidra"],
+    },
+    {
+      group: "Programming",
+      items: ["C#", "JavaScript", "Python", "Java", "C", "PHP", "HTML / CSS", "React"],
+    },
+    {
+      group: "Multimedia",
+      items: ["Canva", "Photoshop", "Figma"],
     },
     {
       group: "Tools & Platforms",
-      items: ["Unity 3D", "Git / GitHub", "Figma", "DaVinci Resolve", "Linux", "VS Code"],
+      items: ["Unity 3D", "Git / GitHub", "Linux", "VS Code", "Anti-Gravity", "Windows", "Microsoft Office", "Cisco Packet Tracer"],
     },
   ],
 
   education: [
     {
-      school: "Your University Name", // REPLACE
+      school: "Pamantasan ng Lungsod ng Valenzuela", // REPLACE
       degree: "Bachelor of Science in Information Technology",
-      years: "2022 – Present",        // REPLACE
-      gpa: "Your GPA",                // REPLACE or remove
+      years: "2023 – 2027",        // REPLACE  
     },
   ],
 }

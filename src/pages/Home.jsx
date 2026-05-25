@@ -13,9 +13,9 @@ const stats = [
 
 // Feature highlights
 const highlights = [
-  { icon: Terminal,   title: "Full-Stack Dev",    desc: "React, Node.js, Unity, C#" },
-  { icon: Shield,     title: "Network & Security", desc: "Cisco, VLAN, pfSense, CompTIA" },
-  { icon: Layers,     title: "Multimedia",          desc: "DaVinci Resolve, Figma, Motion" },
+  { icon: Terminal, title: "Full-Stack Dev", desc: "React, Node.js, Unity, C#" },
+  { icon: Shield, title: "Network & Security", desc: "Cisco, VLAN, pfSense, CompTIA" },
+  { icon: Layers, title: "Multimedia", desc: "DaVinci Resolve, Figma, Motion" },
 ]
 
 export default function Home() {
