@@ -8,23 +8,23 @@ import { projects } from "../data/projects"
 export default function Home() {
   const [showAllSkills, setShowAllSkills] = useState(false)
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 4)
-  
+
   const defaultCategories = ["Cybersecurity", "Programming", "Frameworks & Libraries"]
-  const displayedSkills = showAllSkills 
-    ? about.skills 
+  const displayedSkills = showAllSkills
+    ? about.skills
     : about.skills.filter(skill => defaultCategories.includes(skill.group))
 
   return (
     <main className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-slate-200 dark:selection:bg-slate-800 pb-24 pt-24 sm:pt-32">
       <div className="max-w-4xl mx-auto px-6">
-        
+
         {/* HERO HEADER */}
         <div className="flex flex-col sm:flex-row gap-8 mb-16 items-start animate-fade-in" style={{ animationDuration: "0.6s" }}>
           {/* Avatar */}
           <div className="w-32 h-32 sm:w-48 sm:h-48 shrink-0 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-            <img 
-              src={about.avatar} 
-              alt={about.name} 
+            <img
+              src={about.avatar}
+              alt={about.name}
               className="w-full h-full object-cover transition-transform hover:scale-105 duration-500 cursor-pointer"
               onMouseOver={(e) => (e.currentTarget.src = "/images/avatar2.png")}
               onMouseOut={(e) => (e.currentTarget.src = about.avatar)}
@@ -32,7 +32,7 @@ export default function Home() {
               onError={(e) => { e.currentTarget.style.display = "none" }}
             />
           </div>
-          
+
           {/* Info */}
           <div className="flex-1 w-full">
             <div className="flex items-center justify-between mb-2">
@@ -41,46 +41,49 @@ export default function Home() {
                 <CheckCircle2 size={24} className="text-blue-500 fill-blue-500/10" />
               </h1>
             </div>
-            
+
             <div className="flex flex-col gap-2 mb-4">
               <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 text-sm font-medium">
                 <MapPin size={16} />
                 <span>{about.location}</span>
               </div>
               {about.education && about.education.length > 0 && (
-                <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 text-sm font-medium">
-                  <GraduationCap size={16} />
-                  <span>{about.education[0].school}</span>
+                <div className="flex items-start gap-1.5 text-slate-600 dark:text-slate-400 text-sm font-medium">
+                  <GraduationCap size={16} className="mt-0.5 shrink-0" />
+                  <div className="flex flex-col gap-1">
+                    <span>{about.education[0].school} • BSIT</span>
+                    <span>Arellano University - Elisa Esguera Campus • ICT-TVL</span>
+                  </div>
                 </div>
               )}
             </div>
-            
+
             <h2 className="text-base sm:text-lg font-medium text-slate-800 dark:text-slate-200 mb-6 flex flex-wrap items-center gap-2">
-               {about.tagline.split(' · ').map((part, i, arr) => (
-                  <span key={i} className="flex items-center gap-2">
-                    {part}
-                    {i < arr.length - 1 && <span className="text-slate-300 dark:text-slate-600 font-light">\</span>}
-                  </span>
-               ))}
+              {about.tagline.split(' · ').map((part, i, arr) => (
+                <span key={i} className="flex items-center gap-2">
+                  {part}
+                  {i < arr.length - 1 && <span className="text-slate-300 dark:text-slate-600 font-light">\</span>}
+                </span>
+              ))}
             </h2>
-            
+
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3">
-              <a 
-                href={about.resumeUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={about.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-black dark:bg-white text-white dark:text-black text-sm font-semibold rounded-lg hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-sm"
               >
                 <Download size={16} /> Download CV
               </a>
-              <a 
+              <a
                 href={`mailto:${about.email}`}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-transparent text-slate-900 dark:text-slate-100 text-sm font-semibold rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors shadow-sm"
               >
                 <Mail size={16} /> Send Email
               </a>
-              <a 
+              <a
                 href={about.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,7 +91,7 @@ export default function Home() {
               >
                 <GithubIcon size={16} /> GitHub <ChevronRight size={14} className="ml-1 text-slate-400" />
               </a>
-              <a 
+              <a
                 href={about.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -116,14 +119,14 @@ export default function Home() {
         <section className="mb-20">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Tech Stack</h2>
-            <button 
+            <button
               onClick={() => setShowAllSkills(!showAllSkills)}
               className="text-sm font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1"
             >
               {showAllSkills ? "Show Less" : "View All"} <ChevronRight size={16} />
             </button>
           </div>
-          
+
           <div className="space-y-8">
             {displayedSkills.map((skillGroup) => (
               <div key={skillGroup.group}>
@@ -132,8 +135,8 @@ export default function Home() {
                 </h3>
                 <div className="flex flex-wrap gap-x-5 gap-y-2">
                   {skillGroup.items.map((item) => (
-                    <span 
-                      key={item} 
+                    <span
+                      key={item}
                       className="text-[15px] font-medium text-slate-600 dark:text-slate-400"
                     >
                       {item}
@@ -150,13 +153,13 @@ export default function Home() {
         {/* PROJECTS */}
         <section id="projects">
           <div className="flex items-center justify-between mb-8">
-             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Recent Projects</h2>
-             <Link 
-               to="/projects" 
-               className="text-sm font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1"
-             >
-               View All <ChevronRight size={16} />
-             </Link>
+            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Recent Projects</h2>
+            <Link
+              to="/projects"
+              className="text-sm font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1"
+            >
+              View All <ChevronRight size={16} />
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -165,12 +168,12 @@ export default function Home() {
               if (project.demoUrl && project.demoUrl !== "#" && project.demoUrl.startsWith("http")) {
                 try {
                   tagLabel = new URL(project.demoUrl).hostname.replace("www.", "");
-                } catch(e) {}
+                } catch (e) { }
               }
 
               return (
-                <div 
-                  key={project.id} 
+                <div
+                  key={project.id}
                   className="p-6 rounded-2xl bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors flex flex-col h-full group"
                 >
                   <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
