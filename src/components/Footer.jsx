@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-slate-200 dark:border-white/5 bg-white dark:bg-slate-950" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
           {/* Brand */}
@@ -30,7 +30,6 @@ export default function Footer() {
               {[
                 { to: "/", label: "Home" },
                 { to: "/projects", label: "Projects" },
-                { to: "/about", label: "About" },
                 { to: "/contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.to}>

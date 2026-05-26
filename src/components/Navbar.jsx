@@ -7,7 +7,6 @@ import { about } from "../data/about"
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
-  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ]
 
@@ -37,17 +36,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
     >
       <nav
         aria-label="Main navigation"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+        className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"
       >
-        {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-2 font-extrabold text-xl tracking-tight hover:opacity-80 transition-opacity"
-          aria-label="Go to home page"
-        >
-          {/* REPLACE: Your name/brand */}
-          <span className="gradient-text">Jet Angelo Pagaduan</span>
-        </Link>
 
         {/* Desktop nav links */}
         <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">

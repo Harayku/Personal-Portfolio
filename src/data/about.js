@@ -8,16 +8,16 @@ export const about = {
   name: "Jet Angelo Pagaduan",
 
   // REPLACE: One-line tagline shown in the hero
-  tagline: "IT Student · Game Developer · CyberSecurity · Network Enthusiast",
+  tagline: "Software Developer · Game Development · Networking · Cybersecurity",
 
   // REPLACE: Your avatar/profile photo — place in /public/images/
   avatar: "/images/avatar1.png",
 
   // REPLACE: 2–3 short paragraphs about yourself
   bio: [
-    "I'm a Bachelor of Science in Information Technology student passionate about computer networking, cybersecurity, and interactive software. My work spans from configuring enterprise Cisco topologies to building 3D/2D educational games in Unity.",
-    "I believe technology should be both functional and engaging which is why I blend strong technical foundations with creative multimedia skills. Whether it's designing a secure VLAN scheme or crafting an animated game trailer, I bring the same attention to detail.",
-    "Currently seeking opportunities in network administration, IT support, or software development where I can apply my skills and keep learning.",
+    "I'm a software developer with a strong focus on Web Development, Game Development and Networking & Cybersecurity.",
+    "I specialize in building games, web applications. I also have a deep passion for the lower-level aspects of computing—I enjoy debugging, binary analysis, and actively participating in CTF challenges.",
+    "Whether I'm crafting interactive software or analyzing systems for vulnerabilities, I approach every technical challenge with curiosity and a structured mindset.",
   ],
 
   // REPLACE: Your real location
@@ -39,14 +39,13 @@ export const about = {
   resumeUrl: "/resume.pdf",
 
   skills: [
-    // Group your skills; add/remove groups as needed
     {
       group: "Networking",
       items: ["VLANs / Trunking", "OSPF / RIP", "Packet Tracer"],
     },
     {
       group: "Cybersecurity",
-      items: ["Kali Linux", "Nmap", "Wireshark", "Metasploit", "IDA/Ghidra", "BurpSuite"],
+      items: ["Kali Linux", "Nmap", "Wireshark", "Metasploit", "IDA/Ghidra", "BurpSuite", "GDB", "Binary Analysis", "Debugging", "CTF Challenges"],
     },
     {
       group: "Programming",
