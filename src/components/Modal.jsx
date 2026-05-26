@@ -57,13 +57,13 @@ export default function Modal({ cert, onClose }) {
           ref={closeRef}
           onClick={onClose}
           aria-label="Close certificate details"
-          className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-400 hover:text-white transition-all duration-200"
+          className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-all duration-200"
         >
           <X size={20} aria-hidden="true" />
         </button>
 
         {/* Header */}
-        <div className="p-6 pb-4 border-b border-white/5">
+        <div className="p-6 pb-4 border-b border-slate-200 dark:border-white/5">
           <div className="flex items-start gap-4">
             {cert.badgeUrl ? (
               <img
@@ -83,11 +83,11 @@ export default function Modal({ cert, onClose }) {
               </p>
               <h2
                 id="modal-title"
-                className="text-2xl font-extrabold text-white leading-tight"
+                className="text-2xl font-extrabold text-slate-900 dark:text-white leading-tight"
               >
                 {cert.title}
               </h2>
-              <p className="text-slate-400 mt-1 font-medium">{cert.issuer}</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-1 font-medium">{cert.issuer}</p>
             </div>
           </div>
         </div>
@@ -95,34 +95,34 @@ export default function Modal({ cert, onClose }) {
         {/* Details grid */}
         <div className="p-6 space-y-6">
           {/* Description */}
-          <p id="modal-desc" className="text-slate-300 leading-relaxed">
+          <p id="modal-desc" className="text-slate-700 dark:text-slate-300 leading-relaxed">
             {cert.longDescription || cert.description}
           </p>
 
           {/* Meta info */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {formattedDate && (
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5">
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5">
                 <Calendar size={18} className="text-sky-400 mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-xs text-slate-500 font-medium">Issued</p>
-                  <p className="text-slate-200 font-semibold">{formattedDate}</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-semibold">{formattedDate}</p>
                 </div>
               </div>
             )}
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5">
               <CheckCircle size={18} className="text-emerald-400 mt-0.5 shrink-0" aria-hidden="true" />
               <div>
                 <p className="text-xs text-slate-500 font-medium">Expires</p>
-                <p className="text-slate-200 font-semibold">{formattedExpiry}</p>
+                <p className="text-slate-800 dark:text-slate-200 font-semibold">{formattedExpiry}</p>
               </div>
             </div>
             {cert.credentialId && (
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5 sm:col-span-2">
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5 sm:col-span-2">
                 <Hash size={18} className="text-sky-400 mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-xs text-slate-500 font-medium">Credential ID</p>
-                  <p className="text-slate-200 font-mono text-sm">{cert.credentialId}</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-mono text-sm">{cert.credentialId}</p>
                 </div>
               </div>
             )}
@@ -131,7 +131,7 @@ export default function Modal({ cert, onClose }) {
           {/* Skills */}
           {cert.skills && cert.skills.length > 0 && (
             <div>
-              <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-3">
+              <h3 className="text-sm font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-3">
                 Skills Covered
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -143,7 +143,7 @@ export default function Modal({ cert, onClose }) {
           )}
 
           {/* Action buttons */}
-          <div className="flex flex-wrap gap-3 pt-2 border-t border-white/5">
+          <div className="flex flex-wrap gap-3 pt-2 border-t border-slate-200 dark:border-white/5">
             {cert.verifyUrl && (
               <a
                 href={cert.verifyUrl}

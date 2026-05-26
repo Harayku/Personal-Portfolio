@@ -46,8 +46,8 @@ export default function Contact() {
                 Contacting
               </p>
               {/* REPLACE: Your name is pulled from data/contact.js → contactName */}
-              <h2 className="text-2xl font-extrabold text-white mb-1">{contact.contactName}</h2>
-              <p className="text-slate-400 text-sm">{about.tagline}</p>
+              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white mb-1">{contact.contactName}</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-sm">{about.tagline}</p>
             </div>
 
             {/* Details */}
@@ -60,11 +60,11 @@ export default function Contact() {
                   <div>
                     <p className="text-xs text-slate-500 font-medium">{label}</p>
                     {href ? (
-                      <a href={href} className="text-slate-300 hover:text-sky-400 transition-colors text-sm">
+                      <a href={href} className="text-slate-700 dark:text-slate-300 hover:text-sky-400 transition-colors text-sm">
                         {value}
                       </a>
                     ) : (
-                      <p className="text-slate-300 text-sm">{value}</p>
+                      <p className="text-slate-700 dark:text-slate-300 text-sm">{value}</p>
                     )}
                   </div>
                 </div>
@@ -73,7 +73,7 @@ export default function Contact() {
 
             {/* Social links */}
             <div className="glass rounded-2xl p-6">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-4">
                 Find Me Online
               </p>
               <div className="flex flex-col gap-3">
@@ -82,7 +82,7 @@ export default function Contact() {
                     href={contact.socials.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-colors group"
                     aria-label="GitHub profile"
                   >
                     <GithubIcon size={18} className="group-hover:text-sky-400 transition-colors" />
@@ -94,7 +94,7 @@ export default function Contact() {
                     href={contact.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-colors group"
                     aria-label="LinkedIn profile"
                   >
                     <LinkedinIcon size={18} className="group-hover:text-sky-400 transition-colors" />
@@ -106,7 +106,7 @@ export default function Contact() {
                     href={contact.socials.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-colors group"
                     aria-label="Twitter / X profile"
                   >
                     <TwitterIcon size={18} className="group-hover:text-sky-400 transition-colors" />

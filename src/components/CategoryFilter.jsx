@@ -31,7 +31,7 @@ export default function CategoryFilter({ categories, active, onChange, search, o
           <button
             onClick={() => onSearch("")}
             aria-label="Clear search"
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900 dark:text-white transition-colors"
           >
             <X size={15} aria-hidden="true" />
           </button>
@@ -52,8 +52,8 @@ export default function CategoryFilter({ categories, active, onChange, search, o
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500
                 ${
                   isActive
-                    ? "bg-sky-500 border-transparent text-white shadow-lg shadow-sky-500/25 scale-105"
-                    : "border-slate-700 text-slate-400 hover:border-sky-500 hover:text-sky-400 bg-transparent"
+                    ? "bg-sky-500 border-transparent text-slate-900 dark:text-white shadow-lg shadow-sky-500/25 scale-105"
+                    : "border-slate-700 text-slate-600 dark:text-slate-400 hover:border-sky-500 hover:text-sky-400 bg-transparent"
                 }
               `}
             >

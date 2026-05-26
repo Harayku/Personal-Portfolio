@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react"
+import { useState, useEffect, lazy, Suspense } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
@@ -34,19 +34,21 @@ export default function App() {
   }
 
   // Apply dark class to <html> element for full-page theming
-  // (Tailwind dark: variant reads from this)
-  if (darkMode) {
-    document.documentElement.classList.add("dark")
-  } else {
-    document.documentElement.classList.remove("dark")
-  }
+  // Apply dark class to <html> element for full-page theming
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
+  }, [darkMode])
 
   return (
     <BrowserRouter>
       {/* Skip-to-content link for keyboard accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-sky-500 focus:text-white focus:font-semibold"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-sky-500 focus:text-slate-900 dark:text-white focus:font-semibold"
       >
         Skip to main content
       </a>
@@ -66,8 +68,8 @@ export default function App() {
               <main className="min-h-screen flex items-center justify-center text-center px-4 pt-16" id="main-content">
                 <div>
                   <p className="text-8xl font-extrabold text-sky-400 mb-4">404</p>
-                  <h1 className="text-2xl font-bold text-white mb-2">Page Not Found</h1>
-                  <p className="text-slate-400 mb-6">The page you're looking for doesn't exist.</p>
+                  <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Page Not Found</h1>
+                  <p className="text-slate-600 dark:text-slate-400 mb-6">The page you're looking for doesn't exist.</p>
                   <a href="/" className="btn-primary">Go Home</a>
                 </div>
               </main>

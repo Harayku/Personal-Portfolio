@@ -104,7 +104,7 @@ export default function ContactForm() {
 
       {/* Contact Name (visible field) — REPLACE: explain or rename as needed */}
       <div>
-        <label htmlFor="contactName" className="block text-sm font-medium text-slate-300 mb-1.5">
+        <label htmlFor="contactName" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
           Contacting
         </label>
         <div className="relative">
@@ -131,7 +131,7 @@ export default function ContactForm() {
       {/* Two columns: Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-1.5">
+          <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
             Your Name <span className="text-red-400" aria-hidden="true">*</span>
           </label>
           <input
@@ -155,7 +155,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1.5">
+          <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
             Email Address <span className="text-red-400" aria-hidden="true">*</span>
           </label>
           <input
@@ -181,7 +181,7 @@ export default function ContactForm() {
 
       {/* Subject */}
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-1.5">
+        <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
           Subject <span className="text-red-400" aria-hidden="true">*</span>
         </label>
         <input
@@ -206,7 +206,7 @@ export default function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1.5">
+        <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
           Message <span className="text-red-400" aria-hidden="true">*</span>
         </label>
         <textarea

@@ -66,7 +66,7 @@ export default function Projects() {
 
         {/* Result count */}
         <p className="text-sm text-slate-500 mb-6" aria-live="polite">
-          Showing <span className="text-slate-300 font-semibold">{filtered.length}</span>{" "}
+          Showing <span className="text-slate-700 dark:text-slate-300 font-semibold">{filtered.length}</span>{" "}
           {filtered.length === 1 ? "item" : "items"}
           {activeCategory !== "All" && ` in ${activeCategory}`}
           {search && ` matching "${search}"`}

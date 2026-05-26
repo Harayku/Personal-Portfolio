@@ -8,7 +8,7 @@ export const contact = {
   contactName: "Jet Angelo Pagaduan",
 
   // REPLACE: The email address displayed (not necessarily the receiving address)
-  displayEmail: "[EMAIL_ADDRESS]",
+  displayEmail: "jetangelo04.jp@gmail.com",
 
   // REPLACE: Location shown below the email
   location: "Valenzuela City, Philippines",

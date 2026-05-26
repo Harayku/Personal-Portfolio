@@ -57,11 +57,11 @@ export default function ProjectCard({ item, onClick }) {
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-5 gap-3">
-        <h3 className="text-lg font-bold text-white line-clamp-2 leading-snug">{item.title}</h3>
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white line-clamp-2 leading-snug">{item.title}</h3>
 
         {/* Certificate-specific: issuer + date */}
         {isCert && (
-          <div className="flex items-center gap-2 text-sm text-slate-400">
+          <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
             <Award size={14} className="text-sky-400 shrink-0" aria-hidden="true" />
             <span>{item.issuer}</span>
             {item.date && (
@@ -75,7 +75,7 @@ export default function ProjectCard({ item, onClick }) {
           </div>
         )}
 
-        <p className="text-slate-400 text-sm leading-relaxed line-clamp-3">{item.description}</p>
+        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">{item.description}</p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
@@ -88,7 +88,7 @@ export default function ProjectCard({ item, onClick }) {
 
         {/* Action links */}
         {!isCert && (
-          <div className="flex items-center gap-3 pt-2 border-t border-white/5">
+          <div className="flex items-center gap-3 pt-2 border-t border-slate-200 dark:border-white/5">
             {item.demoUrl && item.demoUrl !== "#" && (
               <a
                 href={item.demoUrl}
@@ -109,7 +109,7 @@ export default function ProjectCard({ item, onClick }) {
                 rel="noopener noreferrer"
                 aria-label={`View source code of ${item.title} on GitHub`}
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center gap-1.5 text-xs font-medium text-slate-400 hover:text-white transition-colors duration-200"
+                className="flex items-center gap-1.5 text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-colors duration-200"
               >
                 <GithubIcon size={13} />
                 GitHub
@@ -119,7 +119,7 @@ export default function ProjectCard({ item, onClick }) {
         )}
 
         {isCert && (
-          <p className="text-xs text-sky-400 font-medium pt-2 border-t border-white/5">
+          <p className="text-xs text-sky-400 font-medium pt-2 border-t border-slate-200 dark:border-white/5">
             Click to view certificate details →
           </p>
         )}

@@ -27,7 +27,9 @@ export default function About() {
                 <img
                   src={about.avatar}
                   alt={`Photo of ${about.name}`}
-                  className="w-full h-full object-cover relative z-10"
+                  className="w-full h-full object-cover relative z-10 transition-all duration-300"
+                  onMouseOver={(e) => (e.currentTarget.src = "/images/avatar2.png")}
+                  onMouseOut={(e) => (e.currentTarget.src = about.avatar)}
                   onError={(e) => { e.currentTarget.style.display = "none" }}
                 />
               ) : (
@@ -41,12 +43,12 @@ export default function About() {
             <div className="w-full glass rounded-2xl p-5 space-y-3">
               <div className="flex items-center gap-3 text-sm">
                 <MapPin size={16} className="text-sky-400 shrink-0" aria-hidden="true" />
-                <span className="text-slate-300">{about.location}</span>
+                <span className="text-slate-700 dark:text-slate-300">{about.location}</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Mail size={16} className="text-sky-400 shrink-0" aria-hidden="true" />
                 {/* REPLACE: your email in data/about.js */}
-                <a href={`mailto:${about.email}`} className="text-slate-300 hover:text-sky-400 transition-colors truncate">
+                <a href={`mailto:${about.email}`} className="text-slate-700 dark:text-slate-300 hover:text-sky-400 transition-colors truncate">
                   {about.email}
                 </a>
               </div>
@@ -54,7 +56,7 @@ export default function About() {
                 <div key={edu.school} className="flex items-start gap-3 text-sm">
                   <GraduationCap size={16} className="text-sky-400 shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
-                    <p className="text-slate-300 font-medium">{edu.degree}</p>
+                    <p className="text-slate-700 dark:text-slate-300 font-medium">{edu.degree}</p>
                     <p className="text-slate-500">{edu.school} · {edu.years}</p>
                   </div>
                 </div>
@@ -77,14 +79,14 @@ export default function About() {
           {/* Bio column */}
           <div className="lg:col-span-2 space-y-6">
             <div>
-              <h2 className="text-3xl font-extrabold text-white mb-2">{about.name}</h2>
+              <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">{about.name}</h2>
               <p className="gradient-text font-semibold text-lg">{about.tagline}</p>
             </div>
 
             {/* REPLACE: Bio paragraphs are in data/about.js → bio[] */}
             <div className="space-y-4">
               {about.bio.map((para, i) => (
-                <p key={i} className="text-slate-300 leading-relaxed">
+                <p key={i} className="text-slate-700 dark:text-slate-300 leading-relaxed">
                   {para}
                 </p>
               ))}
@@ -98,7 +100,7 @@ export default function About() {
 
         {/* Skills grid */}
         <section aria-label="Skills">
-          <h2 className="text-2xl font-extrabold text-white mb-8">
+          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white mb-8">
             <span className="gradient-text">Skills</span> & Technologies
           </h2>
 
@@ -111,7 +113,7 @@ export default function About() {
                 </h3>
                 <ul className="space-y-2 list-none p-0 m-0">
                   {items.map((skill) => (
-                    <li key={skill} className="flex items-center gap-2 text-sm text-slate-300">
+                    <li key={skill} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
                       <span className="w-1.5 h-1.5 rounded-full bg-sky-400 shrink-0" aria-hidden="true" />
                       {skill}
                     </li>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { ArrowRight, Download, Sparkles, Terminal, Shield, Layers } from "lucide-react"
+import { ArrowRight, Download, Sparkles, Terminal, Shield, Layers, Database, ToolCase } from "lucide-react"
 import { about } from "../data/about"
 import { projects } from "../data/projects"
 import ProjectCard from "../components/ProjectCard"
@@ -13,9 +13,11 @@ const stats = [
 
 // Feature highlights
 const highlights = [
-  { icon: Terminal, title: "Full-Stack Dev", desc: "React, Node.js, Unity, C#" },
-  { icon: Shield, title: "Network & Security", desc: "Cisco, VLAN, pfSense, CompTIA" },
-  { icon: Layers, title: "Multimedia", desc: "DaVinci Resolve, Figma, Motion" },
+  { icon: Terminal, title: "Software Engineering", desc: "C#, Laravel, Unity, ASP.NET, React," },
+  { icon: Shield, title: "Cybersecurity & Net", desc: "Kali Linux, Wireshark, Cisco, Routing" },
+  { icon: Database, title: "Cloud & Databases", desc: "AWS, Docker, MySQL, MongoDB" },
+  { icon: Layers, title: "Multimedia & Design", desc: "Photoshop, Figma, Canva" },
+  { icon: ToolCase, title: "Tools", desc: "Git/Github, VS Code, Antigravity, Trello, etc." },
 ]
 
 export default function Home() {
@@ -47,11 +49,11 @@ export default function Home() {
             Hi, I'm{" "}
             <span className="gradient-text">{about.name.split(" ")[0]}</span>
             <br />
-            <span className="text-slate-200">{about.name.split(" ").slice(1).join(" ")}</span>
+            <span className="text-slate-800 dark:text-slate-200">{about.name.split(" ").slice(1).join(" ")}</span>
           </h1>
 
           {/* Tagline */}
-          <p className="text-xl sm:text-2xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-xl sm:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
             {/* REPLACE: Update in data/about.js */}
             {about.tagline}
           </p>
@@ -94,15 +96,15 @@ export default function Home() {
 
       {/* ─── HIGHLIGHTS ─────────────────────────────────────────────────── */}
       <section id="highlights" aria-label="Skills highlights" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="glass rounded-2xl p-6 flex items-start gap-4 group hover:border-sky-500/30 transition-all duration-300">
               <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 group-hover:border-sky-500/40 transition-all duration-300">
                 <Icon size={24} className="text-sky-400" aria-hidden="true" />
               </div>
               <div>
-                <h3 className="font-bold text-white mb-1">{title}</h3>
-                <p className="text-slate-400 text-sm">{desc}</p>
+                <h3 className="font-bold text-slate-900 dark:text-white mb-1">{title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm">{desc}</p>
               </div>
             </div>
           ))}
@@ -110,7 +112,7 @@ export default function Home() {
       </section>
 
       {/* ─── FEATURED PROJECTS ──────────────────────────────────────────── */}
-      <section id="featured-projects" aria-label="Featured projects" className="py-24 bg-slate-900/30">
+      <section id="featured-projects" aria-label="Featured projects" className="py-24 bg-slate-50/30 dark:bg-slate-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
@@ -142,10 +144,10 @@ export default function Home() {
         <div className="glass animate-glow rounded-3xl p-10 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-sky-600/10 rounded-3xl" aria-hidden="true" />
           <div className="relative">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
               Let's Build Something Together
             </h2>
-            <p className="text-slate-400 max-w-xl mx-auto mb-8">
+            <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-8">
               Whether you have a project in mind, a networking challenge, or just want to connect — I'd love to hear from you.
             </p>
             <Link to="/contact" className="btn-primary text-base px-8 py-4" aria-label="Go to contact page">

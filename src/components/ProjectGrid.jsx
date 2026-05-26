@@ -39,7 +39,7 @@ export default function ProjectGrid({ items, onCertClick, loading }) {
     return (
       <div className="text-center py-24 text-slate-500" role="status" aria-live="polite">
         <p className="text-5xl mb-4" aria-hidden="true">🔍</p>
-        <p className="text-xl font-semibold text-slate-400 mb-2">No results found</p>
+        <p className="text-xl font-semibold text-slate-600 dark:text-slate-400 mb-2">No results found</p>
         <p className="text-sm">Try a different category or search term.</p>
       </div>
     )
