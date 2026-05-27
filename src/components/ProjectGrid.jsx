@@ -55,7 +55,7 @@ export default function ProjectGrid({ items, onCertClick, loading }) {
         <div key={item.id} role="listitem">
           <ProjectCard
             item={item}
-            onClick={item.category === "Cyber Certificates" ? onCertClick : undefined}
+            onClick={item.category === "Awards and Honor" ? onCertClick : undefined}
           />
         </div>
       ))}

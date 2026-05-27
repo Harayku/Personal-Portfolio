@@ -92,34 +92,33 @@ export const projects = [
   },
   // ─── NETWORKING ───────────────────────────────────────────────────────────
   {
-    id: "net-1",
+    id: "net-floor-proposal",
     category: "Networking",
-    title: "Enterprise VLAN Lab",
+    title: "Office Floor Plan Network Design Proposal",
     description:
-      "A Packet Tracer lab simulating a 3-tier enterprise network with inter-VLAN routing, spanning tree, HSRP failover, and DHCP relay across multiple sites.",
+      "A comprehensive network infrastructure proposal design for a multi-floor office office building, incorporating cabling routes, active device placements, and budget sheets.",
     longDescription:
-      "Covers trunk port configuration, VLAN pruning, rapid PVST+, HSRP active/standby pairs, and ACL-based security policies. All devices are documented with running configs.",
-    tags: ["Cisco IOS", "Packet Tracer", "VLAN", "HSRP", "STP"],
-    image: "/images/vlan-lab.png",
-    demoUrl: "#",  // REPLACE: link to .pkt file or video walkthrough
-    githubUrl: "https://github.com/YOURUSERNAME/vlan-lab", // REPLACE
+      "This design proposal covers the full structural network design for a modern corporate office. It incorporates precise floor layouts with structural cabling runs, active switch/router distribution hubs, wireless AP placement map, subnetting schemes, and an itemized hardware budget sheet.",
+    tags: ["Network Design", "Cabling Layout", "IP Subnetting", "Hardware Budget"],
+    image: "/images/floor-plan.png",
+    demoUrl: "/floor-plan.pdf",
+    githubUrl: null,
     featured: true,
   },
   {
-    id: "net-2",
+    id: "net-vm-mapping",
     category: "Networking",
-    title: "Home Lab: pfSense + Proxmox",
+    title: "Network & PC Mapping using Virtual Machines",
     description:
-      "A physical home-lab stack running Proxmox VE with pfSense VM as the perimeter firewall, segmented VLANs for IoT / work / guest networks, and WireGuard VPN.",
+      "Simulated and configured complex local network topologies using Virtual Machines (VMs) to perform accurate network discovery, IP routing configurations, and security validations.",
     longDescription:
-      "Covers Proxmox cluster setup, pfSense firewall rules, VLAN tagging via managed switch, Suricata IDS, and automated backups to NAS. Network diagram and config files included.",
-    tags: ["Proxmox", "pfSense", "WireGuard", "Suricata", "Home Lab"],
-    image: "/images/homelab.png",
-    demoUrl: "#",
-    githubUrl: "https://github.com/YOURUSERNAME/homelab-docs", // REPLACE
-    featured: false,
+      "Designed and constructed virtualized network topologies to simulate secure corporate networks. Set up multiple operating systems (Windows Server, Linux, Windows Client) inside a hypervisor, mapped the virtual network infrastructure, configured static/dynamic routing, and validated end-to-end connection flow. Includes a full video walkthrough demonstrating connectivity mapping and configuration steps.",
+    tags: ["Virtual Machines", "Network Mapping", "VMware / VirtualBox", "Routing", "PC Discovery"],
+    image: "/images/Pc-mapping.png",
+    demoUrl: "https://drive.google.com/file/d/1AnMSGJoBm0Al-PFpOf9f8pXyRkUCl7KI/view?usp=drive_link",
+    githubUrl: null,
+    featured: true,
   },
-
   // ─── MULTIMEDIA ───────────────────────────────────────────────────────────
   {
     id: "mm-1",
@@ -165,4 +164,4 @@ export const projects = [
   },
 ]
 
-export const categories = ["All", "Programming", "Networking", "Cyber Certificates", "Multimedia", "Quality Assurance"]
+export const categories = ["All", "Programming", "Networking", "Multimedia", "Quality Assurance", "Awards and Honor"]

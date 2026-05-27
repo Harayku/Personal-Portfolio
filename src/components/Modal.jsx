@@ -79,7 +79,7 @@ export default function Modal({ cert, onClose }) {
             )}
             <div>
               <p className="text-xs font-semibold text-sky-400 uppercase tracking-widest mb-1">
-                Cyber Certificate
+                {cert.category || "Certificate"}
               </p>
               <h2
                 id="modal-title"
@@ -110,13 +110,23 @@ export default function Modal({ cert, onClose }) {
                 </div>
               </div>
             )}
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5">
-              <CheckCircle size={18} className="text-emerald-400 mt-0.5 shrink-0" aria-hidden="true" />
-              <div>
-                <p className="text-xs text-slate-500 font-medium">Expires</p>
-                <p className="text-slate-800 dark:text-slate-200 font-semibold">{formattedExpiry}</p>
+            {!cert.yearRange ? (
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5">
+                <CheckCircle size={18} className="text-emerald-400 mt-0.5 shrink-0" aria-hidden="true" />
+                <div>
+                  <p className="text-xs text-slate-500 font-medium">Expires</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-semibold">{formattedExpiry}</p>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5">
+                <Calendar size={18} className="text-sky-400 mt-0.5 shrink-0" aria-hidden="true" />
+                <div>
+                  <p className="text-xs text-slate-500 font-medium">Academic Period</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-semibold">{cert.yearRange}</p>
+                </div>
+              </div>
+            )}
             {cert.credentialId && (
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5 sm:col-span-2">
                 <Hash size={18} className="text-sky-400 mt-0.5 shrink-0" aria-hidden="true" />

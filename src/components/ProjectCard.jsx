@@ -1,5 +1,22 @@
-import { ExternalLink, Award } from "lucide-react"
+import { ExternalLink, Award, ShieldCheck } from "lucide-react"
 import { GithubIcon } from "./SocialIcons"
+
+const getDemoLabel = (url) => {
+  if (!url) return "Live Demo"
+  const lowerUrl = url.toLowerCase()
+  if (lowerUrl.endsWith(".pdf")) return "View PDF"
+  if (
+    lowerUrl.includes("youtube.com") ||
+    lowerUrl.includes("youtu.be") ||
+    lowerUrl.includes("drive.google.com") ||
+    lowerUrl.endsWith(".mp4") ||
+    lowerUrl.endsWith(".webm") ||
+    lowerUrl.endsWith(".mov")
+  ) {
+    return "Watch Video"
+  }
+  return "Live Demo"
+}
 
 /**
  * ProjectCard — Reusable card for both projects and certificates.
@@ -8,7 +25,76 @@ import { GithubIcon } from "./SocialIcons"
  *   onClick  — optional click handler (used for certificate modal)
  */
 export default function ProjectCard({ item, onClick }) {
-  const isCert = item.category === "Cybersecurity"
+  const isCert = item.category === "Awards and Honor"
+
+  if (isCert) {
+    return (
+      <article
+        onClick={() => onClick(item)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onClick(item)}
+        aria-label={`View details for ${item.title}`}
+        className="glass glow-border rounded-3xl p-6 flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-500/10 text-left min-h-[220px] justify-between cursor-pointer"
+      >
+        {/* Ribbon decoration in background */}
+        <div className="absolute right-0 top-0 text-slate-800/10 dark:text-white/5 pointer-events-none transform translate-x-2 -translate-y-2 scale-[1.6]">
+          <Award size={100} strokeWidth={1} />
+        </div>
+
+        {/* Top Header Row */}
+        <div className="flex items-center justify-between z-10">
+          {/* Badge Icon / Logo */}
+          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+            <ShieldCheck size={20} className="text-emerald-400" />
+          </div>
+          {/* Year */}
+          {(item.yearRange || item.date) && (
+            <span className="text-[13px] font-bold text-sky-400 font-mono">
+              [{item.yearRange || new Date(item.date).getFullYear()}]
+            </span>
+          )}
+        </div>
+
+        {/* Title & Issuer */}
+        <div className="space-y-1 z-10 mt-3 flex-grow">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">
+            {item.title}
+          </h3>
+          <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+            {item.issuer}
+          </p>
+        </div>
+
+        {/* Rank / Status */}
+        {item.rank && (
+          <div className="flex items-center gap-1.5 text-xs font-black text-emerald-400 uppercase tracking-wider mt-4 z-10">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            {item.rank}
+          </div>
+        )}
+
+        {/* View Verification Button */}
+        <div className="mt-4 pt-1 z-10">
+          {(item.pdfUrl || item.verifyUrl) ? (
+            <a
+              href={item.pdfUrl || item.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center text-xs font-black uppercase tracking-wider text-purple-400 hover:text-purple-300 transition-colors"
+            >
+              VIEW VERIFICATION &gt;
+            </a>
+          ) : (
+            <span className="text-xs font-black uppercase tracking-wider text-purple-400">
+              VIEW VERIFICATION &gt;
+            </span>
+          )}
+        </div>
+      </article>
+    )
+  }
 
   return (
     <article
@@ -99,7 +185,7 @@ export default function ProjectCard({ item, onClick }) {
                 className="flex items-center gap-1.5 text-xs font-medium text-sky-400 hover:text-sky-300 transition-colors duration-200"
               >
                 <ExternalLink size={13} aria-hidden="true" />
-                Live Demo
+                {getDemoLabel(item.demoUrl)}
               </a>
             )}
             {item.githubUrl && (
@@ -119,9 +205,24 @@ export default function ProjectCard({ item, onClick }) {
         )}
 
         {isCert && (
-          <p className="text-xs text-sky-400 font-medium pt-2 border-t border-slate-200 dark:border-white/5">
-            Click to view certificate details →
-          </p>
+          <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-white/5">
+            <span className="text-xs text-sky-400 font-medium">
+              Click to view details →
+            </span>
+            {item.pdfUrl && (
+              <a
+                href={item.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View PDF of ${item.title}`}
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors duration-200"
+              >
+                <ExternalLink size={12} aria-hidden="true" />
+                View PDF
+              </a>
+            )}
+          </div>
         )}
       </div>
     </article>
