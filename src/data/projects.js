@@ -35,48 +35,61 @@ export const projects = [
     featured: true,
   },
   {
-    id: "prog-1",
+    id: "prog-tqg",
     category: "Programming",
-    title: "Packet Chase",
+    title: "TQG Merchandising Product Management System",
     description:
-      "A 3-D educational game built in Unity where players learn computer networking concepts by physically connecting network cables and configuring switches, routers, and VLANs in an interactive sandbox environment.",
+      "Web Application built with Vanilla PHP, HTML, and CSS. Developed a complete Vanilla PHP CRUD system allowing seamless, real-time modifications to the product database.",
     longDescription:
-      "Packet Chase is a capstone project designed to make networking education engaging. Players walk through a virtual office, crimp Ethernet cables, configure managed switches via a simulated CLI, and watch packets travel across the network in real time.",
-    tags: ["Unity", "C#", "Game Dev", "Networking", "Scriptable Objects"],
-    image: "/images/packet-chase.png", // REPLACE: add your screenshot to /public/images/
-    demoUrl: "#",                        // REPLACE: live demo link
-    githubUrl: "https://github.com/YOURUSERNAME/packet-chase", // REPLACE
+      "A complete Product Management System built with Vanilla PHP, HTML, and CSS. The application features a robust CRUD system that allows seamless and real-time modifications to the product database, ensuring efficient inventory tracking.",
+    tags: ["PHP", "HTML", "CSS", "CRUD", "Web App"],
+    image: "/images/TQG-Merchandise.png",
+    demoUrl: "#",
+    githubUrl: "https://github.com/Harayku/TQG-Merhandise",
     featured: true,
   },
   {
-    id: "prog-2",
+    id: "prog-survey",
     category: "Programming",
-    title: "Portfolio Website",
+    title: "Satisfaction Survey System",
     description:
-      "This very site — a responsive personal portfolio built with React, React Router, and Tailwind CSS, featuring dark mode, animated hero, project grid with category filters, and a functional contact form.",
+      "A professional feedback system built with Laravel, Filament, and React, supporting complex data collection (Rating, Text, Checkbox) with a secure, isolated data architecture.",
     longDescription:
-      "Built as a showcase of modern front-end skills. Implements lazy-loaded routes, a reusable component library, glassmorphism design, and a Netlify serverless function for form handling.",
-    tags: ["React", "Tailwind CSS", "Vite", "React Router", "Serverless"],
-    image: "/images/portfolio.png",
-    demoUrl: "#",
-    githubUrl: "https://github.com/YOURUSERNAME/portfolio", // REPLACE
+      "Designed and developed a comprehensive feedback collection platform. Leveraged Laravel for a robust backend API, React for a dynamic frontend user interface, and Filament for an elegant admin dashboard. Features a secure, isolated data architecture to protect sensitive survey responses and supports complex data inputs (ratings, texts, checkboxes) with built-in validation.",
+    tags: ["Laravel", "Filament", "React", "PHP", "Feedback System"],
+    image: "/images/survey-system.png",
+    demoUrl: "https://valenzuela-satisfaction-survey-main-plae88.laravel.cloud/",
+    githubUrl: null,
     featured: true,
   },
   {
-    id: "prog-3",
+    id: "prog-library",
     category: "Programming",
-    title: "Network Topology Visualizer",
+    title: "CEIT Library Management & QR Code Logging System",
     description:
-      "A web-based tool that renders live network topology diagrams from JSON config files, color-coding device states and traffic flows using D3.js and WebSockets.",
+      "Full-stack web application utilizing Laravel, PHP, JavaScript, and SQL. Features a centralized system for logging academic and research papers via QR code scanning and a web-based administrative dashboard for real-time statistics.",
     longDescription:
-      "Reads Cisco-style device configs and produces interactive SVG graphs. Supports drag-and-drop node rearrangement, hover tooltips with interface stats, and export to PNG/SVG.",
-    tags: ["JavaScript", "D3.js", "WebSocket", "Node.js", "Express"],
-    image: "/images/topology.png",
-    demoUrl: "#",
-    githubUrl: "https://github.com/YOURUSERNAME/network-visualizer", // REPLACE
-    featured: false,
+      "A comprehensive, full-stack library management solution built with Laravel, PHP, JavaScript, and SQL. The system streamlines the logging of academic and research papers using integrated QR code scanning. It also boasts an advanced administrative dashboard displaying live statistics and detailed usage analytics to enhance resource monitoring.",
+    tags: ["Laravel", "PHP", "JavaScript", "SQL", "QR Code", "Full-Stack"],
+    image: "/images/ceit-library.png",
+    demoUrl: "https://ceit-library-main-cru0ty.laravel.cloud/",
+    githubUrl: null,
+    featured: true,
   },
-
+  {
+    id: "prog-packet-flipper",
+    category: "Programming",
+    title: "Packet Flipper - 3D Educational Networking Game (CAPSTONE)",
+    description:
+      "A standalone PC sandbox game built with Unity and C#. Developed 3D mechanics to simulate packet flow, VLAN configurations, and CIDR concepts to serve as an interactive learning tool for IT students.",
+    longDescription:
+      "Packet Flipper is a 3D educational networking game designed as a Capstone project. It serves as an interactive learning tool for IT students by simulating real-world networking concepts in a physical 3D environment. Players can experience packet flows, configure VLANs, and apply CIDR concepts in an engaging PC sandbox experience.",
+    tags: ["Unity", "C#", "Game Dev", "Networking", "3D Sandbox", "VLAN", "CIDR"],
+    image: "/images/packet-flipper.png",
+    demoUrl: "https://packetflipper-portal.vercel.app/login",
+    githubUrl: null,
+    featured: true,
+  },
   // ─── NETWORKING ───────────────────────────────────────────────────────────
   {
     id: "net-1",
@@ -111,9 +124,9 @@ export const projects = [
   {
     id: "mm-1",
     category: "Multimedia",
-    title: "Packet Chase — Game Trailer",
+    title: "Packet Flipper — Game Trailer",
     description:
-      "Cinematic trailer for the Packet Chase educational game. Shot in-engine using Unity Cinemachine, edited in DaVinci Resolve with motion graphics and SFX.",
+      "Cinematic trailer for the Packet Flipper 3D educational game. Shot in-engine using Unity Cinemachine, edited in DaVinci Resolve with motion graphics and SFX.",
     longDescription:
       "Showcases gameplay mechanics, cable-crimping sequences, and switch configuration UI. Color-graded to a neon-noir aesthetic. Runtime: 1m 30s.",
     tags: ["DaVinci Resolve", "Unity Cinemachine", "Motion Graphics", "SFX"],
@@ -137,18 +150,18 @@ export const projects = [
     featured: false,
   },
   {
-    id: "qa-1",
+    id: "qa-task-buddy",
     category: "Quality Assurance",
-    title: "Quality Assurance Project Template",
+    title: "Task-Buddy QA & Testing",
     description:
-      "A template for a Quality Assurance project. Update this description with details about your manual/automated testing, test cases, or QA processes.",
+      "Conducted comprehensive Quality Assurance and testing for the Task-Buddy web application. Performed manual functional, integration, and cross-browser testing to ensure smooth and reliable task management workflows.",
     longDescription:
-      "A more detailed explanation of your Quality Assurance methodologies, testing frameworks used, bug tracking processes, and the impact of your QA efforts.",
-    tags: ["QA", "Testing", "Manual Testing"],
-    image: "/images/qa-placeholder.png",
-    demoUrl: "#",
+      "Conducted thorough end-to-end Quality Assurance testing on the Task-Buddy frontend application. Formulated clear test cases, executed manual regressions, performed black-box functional validation on core UI components, and analyzed cross-device responsiveness to guarantee a seamless user experience.",
+    tags: ["Quality Assurance", "Manual Testing", "UI/UX Testing", "Functional Testing", "Cross-Browser"],
+    image: "/images/task-buddy.png",
+    demoUrl: "https://task-buddy-frontend.vercel.app/",
     githubUrl: null,
-    featured: false,
+    featured: true,
   },
 ]
 

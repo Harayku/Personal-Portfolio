@@ -153,7 +153,7 @@ export default function Home() {
         {/* PROJECTS */}
         <section id="projects">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Recent Projects</h2>
+            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Projects</h2>
             <Link
               to="/projects"
               className="text-sm font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1"
