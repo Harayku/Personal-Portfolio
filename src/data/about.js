@@ -45,7 +45,7 @@ export const about = {
     },
     {
       group: "Cybersecurity",
-      items: ["Kali Linux", "Nmap", "Wireshark", "Metasploit", "IDA/Ghidra", "BurpSuite", "GDB", "Binary Analysis", "Debugging", "CTF Challenges"],
+      items: ["Kali Linux", "Nmap", "Wireshark", "Metasploit", "IDA/Ghidra", "BurpSuite", "GDB", "OSINT", "Forensic", "CTF Challenges"],
     },
     {
       group: "Programming",
@@ -65,7 +65,7 @@ export const about = {
     },
     {
       group: "DevOps & Cloud",
-      items: ["Docker", "AWS", "Vercel"],
+      items: ["Docker", "Azure", "Vercel"],
     },
     {
       group: "Collaboration & Management",
