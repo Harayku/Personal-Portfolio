@@ -70,7 +70,7 @@ export const certificates = [
     credentialId: null,
     description:
       "Recognized consistently as a Dean's Lister for outstanding academic performance and scholastic excellence, maintaining a prestigious Running General Weighted Average (GWA) of 1.20.",
-    skills: ["Academic Excellence", "Analytical Thinking", "Technical Leadership", "Computer Science"],
+    skills: ["Academic Excellence", "Analytical Thinking", "Problem Solving", "Information Technology"],
     badgeUrl: null,
     pdfUrl: "/certs/DEAN-LISTER-PAGADUAN.png",
     verifyUrl: null,

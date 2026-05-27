@@ -121,32 +121,74 @@ export const projects = [
   },
   // ─── MULTIMEDIA ───────────────────────────────────────────────────────────
   {
-    id: "mm-1",
+    id: "mm-hollowknight",
     category: "Multimedia",
-    title: "Packet Flipper — Game Trailer",
+    title: "Hollow Knight Fan Art Graphic Design",
     description:
-      "Cinematic trailer for the Packet Flipper 3D educational game. Shot in-engine using Unity Cinemachine, edited in DaVinci Resolve with motion graphics and SFX.",
+      "A 2d pixel digital art and graphic design composition inspired by the Hollow Knight universe, utilizing creative image manipulation and color composition.",
     longDescription:
-      "Showcases gameplay mechanics, cable-crimping sequences, and switch configuration UI. Color-graded to a neon-noir aesthetic. Runtime: 1m 30s.",
-    tags: ["DaVinci Resolve", "Unity Cinemachine", "Motion Graphics", "SFX"],
-    image: "/images/trailer.png",
-    demoUrl: "https://youtu.be/REPLACE_WITH_YOUR_LINK", // REPLACE
+      "A highly stylized visual composite illustrating key figures and environmental themes from Hollow Knight. Focused on precise background blending, high-contrast glow filters, atmospheric lighting, and digital illustration touch-ups to capture the unique essence of the game.",
+    tags: ["Graphic Design", "Pixel Art", "Compositing", "Visual Editing"],
+    image: "/images/Hollowknight001.png",
+    demoUrl: "/images/Hollowknight001.png",
     githubUrl: null,
     featured: true,
   },
   {
-    id: "mm-2",
+    id: "mm-tralelo",
     category: "Multimedia",
-    title: "UI/UX Case Study — Networking App",
+    title: "Creative Poster Design Artwork",
     description:
-      "End-to-end UX case study for a mobile app that helps home users diagnose and fix common network issues with step-by-step guided flows.",
+      "A modern layout poster concept combining custom graphics into an eye-catching visual composition.",
     longDescription:
-      "Includes user research, competitive analysis, wireframes in Figma, high-fidelity prototypes, and usability-test findings. Focused on accessibility (WCAG AA).",
-    tags: ["Figma", "UX Research", "Prototyping", "WCAG", "Mobile"],
-    image: "/images/ux-case.png",
-    demoUrl: "https://www.figma.com/REPLACE", // REPLACE: Figma prototype link
+      "A promotional poster study exploring contemporary typographic rules, grid-based layouts, and advanced texture overlays. Developed to represent professional visual media standards and aesthetic print/digital composition.",
+    tags: ["Poster Design", "Typography Layout", "Visual Composition", "Color Blending"],
+    image: "/images/tralelo.jpg",
+    demoUrl: "/images/tralelo.jpg",
     githubUrl: null,
-    featured: false,
+    featured: true,
+  },
+  {
+    id: "mm-rotoscope-1",
+    category: "Multimedia",
+    title: "Rotoscope Animation Project I",
+    description:
+      "A frame-by-frame rotoscope animation capturing realistic human movement translated into custom artistic styling.",
+    longDescription:
+      "An animation project utilizing rotoscoping techniques to trace over live-action video footage. Focused on motion tracking, fluid frame transitions, line art consistency, and custom color grading to produce a stylized artistic animation.",
+    tags: ["Rotoscope", "Animation", "2D Art", "Video Editing"],
+    image: "/images/Rotoscope1.png",
+    demoUrl: "https://drive.google.com/file/d/1Nx-jasXYwX0FaZzdozZG8tS8UsQqlxNI/view?usp=drive_link",
+    githubUrl: null,
+    featured: true,
+  },
+  {
+    id: "mm-rotoscope-2",
+    category: "Multimedia",
+    title: "Rotoscope Animation Project II",
+    description:
+      "A stylized frame-by-frame animation showcasing expressive character movement and visual compositing.",
+    longDescription:
+      "The second installment of the rotoscope animation series, exploring abstract artistic layers, dynamic lighting effects, and clean hand-drawn strokes overlaid on captured video flows.",
+    tags: ["Rotoscope", "Animation", "Digital Art", "Video Editing"],
+    image: "/images/Rotoscope2.png",
+    demoUrl: "https://drive.google.com/file/d/17kHSCKKrhOB9KCr2sq83wQE1oMTo3rFD/view?usp=drive_link",
+    githubUrl: null,
+    featured: true,
+  },
+  {
+    id: "mm-alert",
+    category: "Multimedia",
+    title: "Alert Graphic Composition",
+    description:
+      "A creative graphic artwork blending custom lighting, textures, and illustration filters into an atmospheric composition.",
+    longDescription:
+      "An advanced digital compositing piece exploring contrast, lighting, and illustration textures. Focused on detailed color balancing, texturing layers, and layout styling to build an engaging visual poster asset.",
+    tags: ["Graphic Design", "Digital Compositing", "Illustration", "Visual Art"],
+    image: "/images/Alert.jpg",
+    demoUrl: "/images/Alert.jpg",
+    githubUrl: null,
+    featured: true,
   },
   {
     id: "qa-task-buddy",

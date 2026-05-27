@@ -6,6 +6,14 @@ const getDemoLabel = (url) => {
   const lowerUrl = url.toLowerCase()
   if (lowerUrl.endsWith(".pdf")) return "View PDF"
   if (
+    lowerUrl.endsWith(".png") ||
+    lowerUrl.endsWith(".jpg") ||
+    lowerUrl.endsWith(".jpeg") ||
+    lowerUrl.endsWith(".gif")
+  ) {
+    return "View Image"
+  }
+  if (
     lowerUrl.includes("youtube.com") ||
     lowerUrl.includes("youtu.be") ||
     lowerUrl.includes("drive.google.com") ||
@@ -35,7 +43,7 @@ export default function ProjectCard({ item, onClick }) {
         tabIndex={0}
         onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onClick(item)}
         aria-label={`View details for ${item.title}`}
-        className="glass glow-border rounded-3xl p-6 flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-500/10 text-left min-h-[220px] justify-between cursor-pointer"
+        className="glass glow-border rounded-3xl p-6 flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-500/10 text-left min-h-[220px] h-full justify-between cursor-pointer"
       >
         {/* Ribbon decoration in background */}
         <div className="absolute right-0 top-0 text-slate-800/10 dark:text-white/5 pointer-events-none transform translate-x-2 -translate-y-2 scale-[1.6]">
@@ -104,7 +112,7 @@ export default function ProjectCard({ item, onClick }) {
       onKeyDown={isCert ? (e) => (e.key === "Enter" || e.key === " ") && onClick(item) : undefined}
       aria-label={isCert ? `View details for ${item.title}` : item.title}
       className={`
-        glass glow-border rounded-2xl overflow-hidden flex flex-col
+        glass glow-border rounded-2xl overflow-hidden flex flex-col h-full
         transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-500/10
         ${isCert ? "cursor-pointer" : ""}
       `}

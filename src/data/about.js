@@ -57,7 +57,7 @@ export const about = {
     },
     {
       group: "Multimedia",
-      items: ["Canva", "Photoshop", "Figma"],
+      items: ["Canva", "Photoshop", "Figma", "Aseprite", "Capcut", "Premiere Pro", "After Effects", "Illustrator"],
     },
     {
       group: "Database",
