@@ -7,7 +7,8 @@ import { projects } from "../data/projects"
 
 export default function Home() {
   const [showAllSkills, setShowAllSkills] = useState(false)
-  const featuredProjects = projects.filter((p) => p.featured).slice(0, 4)
+  const featuredIds = ["prog-pathogenesis", "prog-survey", "prog-packet-flipper", "prog-library"]
+  const featuredProjects = projects.filter((p) => featuredIds.includes(p.id))
 
   const defaultCategories = ["Cybersecurity", "Programming", "Frameworks & Libraries"]
   const displayedSkills = showAllSkills

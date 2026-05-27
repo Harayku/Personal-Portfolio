@@ -13,7 +13,7 @@ const allItems = [
 ]
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState("All")
+  const [activeCategory, setActiveCategory] = useState("Programming")
   const [search,         setSearch]         = useState("")
   const [selectedCert,   setSelectedCert]   = useState(null)
 

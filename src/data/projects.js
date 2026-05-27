@@ -206,4 +206,4 @@ export const projects = [
   },
 ]
 
-export const categories = ["All", "Programming", "Networking", "Multimedia", "Quality Assurance", "Awards and Honor"]
+export const categories = ["Programming", "Networking", "Multimedia", "Quality Assurance", "Awards and Honor"]
