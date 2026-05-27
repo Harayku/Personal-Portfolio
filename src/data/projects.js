@@ -7,6 +7,34 @@
 export const projects = [
   // ─── PROGRAMMING ──────────────────────────────────────────────────────────
   {
+    id: "prog-dormitory",
+    category: "Programming",
+    title: "The Secret of Old Dormitory",
+    description:
+      "Visual Novel Game built with Unity. Implemented a custom JSON-based dialogue system to efficiently manage and load text data and player choices within Unity.",
+    longDescription:
+      "A visual novel game built with Unity. Developed a custom JSON-based dialogue system to handle complex branching narratives, load text data efficiently, and seamlessly manage player choices.",
+    tags: ["Unity", "C#", "Game Dev", "Visual Novel", "JSON"],
+    image: "/images/secretofdormitory.png",
+    demoUrl: "https://psalmuelle.itch.io/the-secret-of-the-old-dormitory",
+    githubUrl: null,
+    featured: true,
+  },
+  {
+    id: "prog-pathogenesis",
+    category: "Programming",
+    title: "Pathogenesis: End of Revelation",
+    description:
+      "Retro horror adventure game featuring shooter mechanics built with Unity. Designed and developed a top-down retro horror game, seamlessly integrating active shooter mechanics with a virology-themed narrative.",
+    longDescription:
+      "A top-down retro horror game built with Unity. The game features active shooter mechanics seamlessly integrated into a virology-themed narrative, offering a thrilling adventure experience.",
+    tags: ["Unity", "C#", "Game Dev", "Horror", "Shooter"],
+    image: "/images/pathogenesis.png",
+    demoUrl: "https://harayku.itch.io/pathogenesis-end-of-revelation",
+    githubUrl: null,
+    featured: true,
+  },
+  {
     id: "prog-1",
     category: "Programming",
     title: "Packet Chase",
@@ -108,6 +136,20 @@ export const projects = [
     githubUrl: null,
     featured: false,
   },
+  {
+    id: "qa-1",
+    category: "Quality Assurance",
+    title: "Quality Assurance Project Template",
+    description:
+      "A template for a Quality Assurance project. Update this description with details about your manual/automated testing, test cases, or QA processes.",
+    longDescription:
+      "A more detailed explanation of your Quality Assurance methodologies, testing frameworks used, bug tracking processes, and the impact of your QA efforts.",
+    tags: ["QA", "Testing", "Manual Testing"],
+    image: "/images/qa-placeholder.png",
+    demoUrl: "#",
+    githubUrl: null,
+    featured: false,
+  },
 ]
 
-export const categories = ["All", "Programming", "Networking", "Cyber Certificates", "Multimedia"]
+export const categories = ["All", "Programming", "Networking", "Cyber Certificates", "Multimedia", "Quality Assurance"]
