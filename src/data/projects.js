@@ -86,7 +86,7 @@ export const projects = [
       "Packet Flipper is a 3D educational networking game designed as a Capstone project. It serves as an interactive learning tool for IT students by simulating real-world networking concepts in a physical 3D environment. Players can experience packet flows, configure VLANs, and apply CIDR concepts in an engaging PC sandbox experience.",
     tags: ["Unity", "C#", "Game Dev", "Networking", "3D Sandbox", "VLAN", "CIDR"],
     image: "/images/packet-flipper.png",
-    demoUrl: "https://packetflipper-portal.vercel.app/login",
+    demoUrl: "https://drive.google.com/file/d/1TnbMZI2H9BTpfP7t6IZMRhA6u8KO7umm/view",
     githubUrl: null,
     featured: true,
   },

@@ -4,8 +4,9 @@ import { MapPin, Mail, Download, CheckCircle2, ChevronRight, GraduationCap } fro
 import { GithubIcon, LinkedinIcon } from "../components/SocialIcons"
 import { about } from "../data/about"
 import { projects } from "../data/projects"
+import AvatarSequence from "../components/AvatarSequence"
 
-export default function Home() {
+export default function Home({ darkMode }) {
   const [showAllSkills, setShowAllSkills] = useState(false)
   const featuredIds = ["prog-pathogenesis", "prog-survey", "prog-packet-flipper", "prog-library"]
   const featuredProjects = projects.filter((p) => featuredIds.includes(p.id))
@@ -21,17 +22,9 @@ export default function Home() {
 
         {/* HERO HEADER */}
         <div className="flex flex-col sm:flex-row gap-8 mb-16 items-start animate-fade-in" style={{ animationDuration: "0.6s" }}>
-          {/* Avatar */}
-          <div className="w-32 h-32 sm:w-48 sm:h-48 shrink-0 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-            <img
-              src={about.avatar}
-              alt={about.name}
-              className="w-full h-full object-cover transition-transform hover:scale-105 duration-500 cursor-pointer"
-              onMouseOver={(e) => (e.currentTarget.src = "/images/avatar2.png")}
-              onMouseOut={(e) => (e.currentTarget.src = about.avatar)}
-              onClick={(e) => (e.currentTarget.src = e.currentTarget.src.includes('avatar2') ? about.avatar : '/images/avatar2.png')}
-              onError={(e) => { e.currentTarget.style.display = "none" }}
-            />
+          {/* Avatar Sequence Toggle */}
+          <div className="w-40 h-40 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <AvatarSequence isDarkMode={darkMode} />
           </div>
 
           {/* Info */}

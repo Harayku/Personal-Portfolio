@@ -24,7 +24,7 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem("darkMode")
     if (saved !== null) return saved === "true"
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
+    return false // Default to light mode first
   })
 
   const toggleDark = (val) => {
@@ -56,7 +56,7 @@ export default function App() {
 
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          <Route path="/"         element={<Home />} />
+          <Route path="/"         element={<Home darkMode={darkMode} />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact"  element={<Contact />} />
           {/* 404 fallback */}
