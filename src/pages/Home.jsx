@@ -5,9 +5,11 @@ import { GithubIcon, LinkedinIcon } from "../components/SocialIcons"
 import { about } from "../data/about"
 import { projects } from "../data/projects"
 import AvatarSequence from "../components/AvatarSequence"
+import Modal from "../components/Modal"
 
 export default function Home({ darkMode }) {
   const [showAllSkills, setShowAllSkills] = useState(false)
+  const [selectedItem, setSelectedItem] = useState(null)
   const featuredIds = ["prog-pathogenesis", "prog-survey", "prog-packet-flipper", "prog-library"]
   const featuredProjects = projects.filter((p) => featuredIds.includes(p.id))
 
@@ -162,18 +164,24 @@ export default function Home({ darkMode }) {
               if (project.demoUrl && project.demoUrl !== "#" && project.demoUrl.startsWith("http")) {
                 try {
                   tagLabel = new URL(project.demoUrl).hostname.replace("www.", "");
-                } catch (e) { }
+                } catch {
+                  // Fallback to default tagLabel if URL parsing fails
+                }
               }
 
               return (
                 <div
                   key={project.id}
-                  className="p-6 rounded-2xl bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors flex flex-col h-full group"
+                  onClick={() => setSelectedItem(project)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setSelectedItem(project)}
+                  className="p-6 rounded-2xl bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors flex flex-col h-full group cursor-pointer shadow-sm hover:shadow-md"
                 >
-                  <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                     {project.title}
                   </h3>
-                  <p className="text-[15px] text-slate-600 dark:text-slate-400 mb-6 flex-grow leading-relaxed">
+                  <p className="text-[15px] text-slate-600 dark:text-slate-400 mb-6 flex-grow leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
                   <div className="mt-auto">
@@ -188,6 +196,8 @@ export default function Home({ darkMode }) {
         </section>
 
       </div>
+
+      <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </main>
   )
 }

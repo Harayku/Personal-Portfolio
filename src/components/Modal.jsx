@@ -1,23 +1,24 @@
 import { useEffect, useRef } from "react"
-import { X, ExternalLink, Award, Calendar, Hash, FileText, CheckCircle } from "lucide-react"
+import { X, Award, Calendar, Hash, FileText, CheckCircle, ExternalLink } from "lucide-react"
+import { GithubIcon } from "./SocialIcons"
 
 /**
- * Modal — Certificate detail modal
+ * Modal — Item detail modal
  * Props:
- *   cert    — certificate object or null (null = closed)
+ *   item    — project or certificate object or null (null = closed)
  *   onClose — () => void
  */
-export default function Modal({ cert, onClose }) {
+export default function Modal({ item, onClose }) {
   const overlayRef = useRef(null)
   const closeRef   = useRef(null)
 
   // Lock body scroll & trap focus
   useEffect(() => {
-    if (!cert) return
+    if (!item) return
     document.body.style.overflow = "hidden"
     closeRef.current?.focus()
     return () => { document.body.style.overflow = "" }
-  }, [cert])
+  }, [item])
 
   // Close on Escape
   useEffect(() => {
@@ -26,15 +27,17 @@ export default function Modal({ cert, onClose }) {
     return () => window.removeEventListener("keydown", onKey)
   }, [onClose])
 
-  if (!cert) return null
+  if (!item) return null
 
-  const formattedDate = cert.date
-    ? new Date(cert.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
+  const formattedDate = item.date
+    ? new Date(item.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
     : null
 
-  const formattedExpiry = cert.expiryDate
-    ? new Date(cert.expiryDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
-    : "No Expiry"
+  const formattedExpiry = item.expiryDate
+    ? new Date(item.expiryDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
+    : item.category === "Awards and Honor" ? "No Expiry" : null
+
+  const displayTags = item.skills || item.tags || []
 
   return (
     <div
@@ -56,7 +59,7 @@ export default function Modal({ cert, onClose }) {
         <button
           ref={closeRef}
           onClick={onClose}
-          aria-label="Close certificate details"
+          aria-label="Close details"
           className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-all duration-200"
         >
           <X size={20} aria-hidden="true" />
@@ -65,11 +68,11 @@ export default function Modal({ cert, onClose }) {
         {/* Header */}
         <div className="p-6 pb-4 border-b border-slate-200 dark:border-white/5">
           <div className="flex items-start gap-4">
-            {cert.badgeUrl ? (
+            {item.badgeUrl || item.image ? (
               <img
-                src={cert.badgeUrl}
-                alt={`${cert.title} badge`}
-                className="w-20 h-20 object-contain rounded-xl bg-white/5 p-2 shrink-0"
+                src={item.badgeUrl || item.image}
+                alt={`${item.title} logo`}
+                className="w-20 h-20 object-cover rounded-xl bg-white/5 p-2 shrink-0"
                 onError={(e) => { e.currentTarget.style.display = "none" }}
               />
             ) : (
@@ -79,15 +82,15 @@ export default function Modal({ cert, onClose }) {
             )}
             <div>
               <p className="text-xs font-semibold text-sky-400 uppercase tracking-widest mb-1">
-                {cert.category || "Certificate"}
+                {item.category || "Details"}
               </p>
               <h2
                 id="modal-title"
-                className="text-2xl font-extrabold text-slate-900 dark:text-white leading-tight"
+                className="text-2xl font-extrabold text-slate-900 dark:text-white leading-tight pr-8"
               >
-                {cert.title}
+                {item.title}
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 mt-1 font-medium">{cert.issuer}</p>
+              {item.issuer && <p className="text-slate-600 dark:text-slate-400 mt-1 font-medium">{item.issuer}</p>}
             </div>
           </div>
         </div>
@@ -95,11 +98,12 @@ export default function Modal({ cert, onClose }) {
         {/* Details grid */}
         <div className="p-6 space-y-6">
           {/* Description */}
-          <p id="modal-desc" className="text-slate-700 dark:text-slate-300 leading-relaxed">
-            {cert.longDescription || cert.description}
+          <p id="modal-desc" className="text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-wrap">
+            {item.longDescription || item.description}
           </p>
 
           {/* Meta info */}
+          {(formattedDate || formattedExpiry || item.yearRange || item.credentialId) && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {formattedDate && (
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5">
@@ -110,7 +114,7 @@ export default function Modal({ cert, onClose }) {
                 </div>
               </div>
             )}
-            {!cert.yearRange ? (
+            {!item.yearRange && formattedExpiry ? (
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5">
                 <CheckCircle size={18} className="text-emerald-400 mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
@@ -118,34 +122,35 @@ export default function Modal({ cert, onClose }) {
                   <p className="text-slate-800 dark:text-slate-200 font-semibold">{formattedExpiry}</p>
                 </div>
               </div>
-            ) : (
+            ) : item.yearRange ? (
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5">
                 <Calendar size={18} className="text-sky-400 mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-xs text-slate-500 font-medium">Academic Period</p>
-                  <p className="text-slate-800 dark:text-slate-200 font-semibold">{cert.yearRange}</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-semibold">{item.yearRange}</p>
                 </div>
               </div>
-            )}
-            {cert.credentialId && (
+            ) : null}
+            {item.credentialId && (
               <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-slate-200 dark:border-white/5 sm:col-span-2">
                 <Hash size={18} className="text-sky-400 mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-xs text-slate-500 font-medium">Credential ID</p>
-                  <p className="text-slate-800 dark:text-slate-200 font-mono text-sm">{cert.credentialId}</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-mono text-sm">{item.credentialId}</p>
                 </div>
               </div>
             )}
           </div>
+          )}
 
           {/* Skills */}
-          {cert.skills && cert.skills.length > 0 && (
+          {displayTags.length > 0 && (
             <div>
               <h3 className="text-sm font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-3">
-                Skills Covered
+                {item.category === "Awards and Honor" ? "Skills Covered" : "Technologies"}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {cert.skills.map((s) => (
+                {displayTags.map((s) => (
                   <span key={s} className="tag">{s}</span>
                 ))}
               </div>
@@ -154,28 +159,24 @@ export default function Modal({ cert, onClose }) {
 
           {/* Action buttons */}
           <div className="flex flex-wrap gap-3 pt-2 border-t border-slate-200 dark:border-white/5">
-            {cert.verifyUrl && (
-              <a
-                href={cert.verifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Verify ${cert.title} credential`}
-                className="btn-primary text-sm"
-              >
-                <CheckCircle size={15} aria-hidden="true" />
-                Verify Credential
+            {item.verifyUrl && (
+              <a href={item.verifyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary text-sm">
+                <CheckCircle size={15} aria-hidden="true" /> Verify Credential
               </a>
             )}
-            {cert.pdfUrl && (
-              <a
-                href={cert.pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Download ${cert.title} certificate PDF`}
-                className="btn-secondary text-sm"
-              >
-                <FileText size={15} aria-hidden="true" />
-                Download PDF
+            {item.pdfUrl && (
+              <a href={item.pdfUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm">
+                <FileText size={15} aria-hidden="true" /> Download PDF
+              </a>
+            )}
+            {item.demoUrl && item.demoUrl !== "#" && (
+              <a href={item.demoUrl} target="_blank" rel="noopener noreferrer" className="btn-primary text-sm">
+                <ExternalLink size={15} aria-hidden="true" /> View Demo
+              </a>
+            )}
+            {item.githubUrl && (
+              <a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm">
+                <GithubIcon size={15} aria-hidden="true" /> Source Code
               </a>
             )}
           </div>

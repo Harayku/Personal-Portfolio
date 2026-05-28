@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { NavLink, Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "./SocialIcons"
 import { about } from "../data/about"

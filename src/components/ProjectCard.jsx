@@ -106,15 +106,15 @@ export default function ProjectCard({ item, onClick }) {
 
   return (
     <article
-      onClick={isCert ? () => onClick(item) : undefined}
-      role={isCert ? "button" : "article"}
-      tabIndex={isCert ? 0 : undefined}
-      onKeyDown={isCert ? (e) => (e.key === "Enter" || e.key === " ") && onClick(item) : undefined}
-      aria-label={isCert ? `View details for ${item.title}` : item.title}
+      onClick={onClick ? () => onClick(item) : undefined}
+      role={onClick ? "button" : "article"}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => (e.key === "Enter" || e.key === " ") && onClick(item) : undefined}
+      aria-label={onClick ? `View details for ${item.title}` : item.title}
       className={`
         glass glow-border rounded-2xl overflow-hidden flex flex-col h-full
         transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-500/10
-        ${isCert ? "cursor-pointer" : ""}
+        ${onClick ? "cursor-pointer" : ""}
       `}
     >
       {/* Thumbnail */}
@@ -182,7 +182,13 @@ export default function ProjectCard({ item, onClick }) {
 
         {/* Action links */}
         {!isCert && (
-          <div className="flex items-center gap-3 pt-2 border-t border-slate-200 dark:border-white/5">
+          <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-white/5">
+            {onClick && (
+              <span className="text-xs text-sky-400 font-medium hidden sm:inline-block">
+                Click to view details →
+              </span>
+            )}
+            <div className="flex items-center gap-3 ml-auto">
             {item.demoUrl && item.demoUrl !== "#" && (
               <a
                 href={item.demoUrl}
@@ -209,6 +215,7 @@ export default function ProjectCard({ item, onClick }) {
                 GitHub
               </a>
             )}
+            </div>
           </div>
         )}
 

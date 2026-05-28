@@ -119,6 +119,20 @@ export const projects = [
     githubUrl: null,
     featured: true,
   },
+  {
+    id: "net-kali-vm",
+    category: "Networking",
+    title: "Kali Linux Penetration Testing & Virtual Networking Lab",
+    description:
+      "Configured and deployed a secure virtual environment to run Kali Linux, performing network penetration testing, vulnerability assessments, and traffic analysis.",
+    longDescription:
+      "Designed and implemented a virtualized security sandbox using VMware/VirtualBox to host a Kali Linux environment. Established isolated host-only networks to safely perform penetration testing, vulnerability assessments, and traffic analysis using tools like Nmap, Wireshark, and Metasploit. Configured firewalls, analyzed packet captures, and documented network vulnerabilities to validate defense-in-depth methodologies.",
+    tags: ["Kali Linux", "Virtual Machines", "Penetration Testing", "Network Security", "Wireshark", "Nmap"],
+    image: "/images/kaliVM.png",
+    demoUrl: "#",
+    githubUrl: null,
+    featured: true,
+  },
   // ─── MULTIMEDIA ───────────────────────────────────────────────────────────
   {
     id: "mm-hollowknight",

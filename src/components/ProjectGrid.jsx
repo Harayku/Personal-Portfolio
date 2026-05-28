@@ -4,10 +4,10 @@ import ProjectCard from "./ProjectCard"
  * ProjectGrid — Responsive grid of ProjectCard components
  * Props:
  *   items     — filtered array of project/cert objects
- *   onCertClick — (cert) => void — opens modal for certificates
+ *   onItemClick — (item) => void — opens modal for items
  *   loading   — boolean (optional, for skeleton state)
  */
-export default function ProjectGrid({ items, onCertClick, loading }) {
+export default function ProjectGrid({ items, onItemClick, loading }) {
   // Loading skeletons
   if (loading) {
     return (
@@ -55,7 +55,7 @@ export default function ProjectGrid({ items, onCertClick, loading }) {
         <div key={item.id} role="listitem">
           <ProjectCard
             item={item}
-            onClick={item.category === "Awards and Honor" ? onCertClick : undefined}
+            onClick={onItemClick}
           />
         </div>
       ))}

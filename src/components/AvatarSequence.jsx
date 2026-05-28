@@ -9,7 +9,7 @@ export default function AvatarSequence({ isDarkMode }) {
   useEffect(() => {
     for (let i = 1; i <= 2; i++) {
       const img = new Image();
-      img.src = `/avatars/avatar${currentFrame}.png`;
+      img.src = `/avatars/avatar${i}.png`;
     }
   }, []);
 

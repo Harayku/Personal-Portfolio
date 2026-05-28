@@ -15,7 +15,7 @@ const allItems = [
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("Programming")
   const [search,         setSearch]         = useState("")
-  const [selectedCert,   setSelectedCert]   = useState(null)
+  const [selectedItem,   setSelectedItem]   = useState(null)
 
   const filtered = useMemo(() => {
     let list = allItems
@@ -75,12 +75,12 @@ export default function Projects() {
         {/* Grid */}
         <ProjectGrid
           items={filtered}
-          onCertClick={(cert) => setSelectedCert(cert)}
+          onItemClick={(item) => setSelectedItem(item)}
         />
       </div>
 
-      {/* Certificate modal */}
-      <Modal cert={selectedCert} onClose={() => setSelectedCert(null)} />
+      {/* Item modal */}
+      <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </main>
   )
 }
