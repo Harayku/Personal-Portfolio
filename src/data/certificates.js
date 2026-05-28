@@ -78,4 +78,21 @@ export const certificates = [
     featured: true,
     rank: "RUNNING GWA OF 1.20",
   },
+  {
+    id: "cert-thm-presecurity",
+    title: "Pre-Security Pathway Certificate",
+    issuer: "TryHackMe",
+    issuerLogo: null,
+    date: "2026-05-29",
+    expiryDate: null,
+    credentialId: "THM-1IZIJPMKPE",
+    description:
+      "Successfully completed the TryHackMe Pre-Security learning pathway, validating fundamental knowledge in cyber security prerequisites, including networking basics, web security, Linux & Windows operating system concepts, and foundational security theory.",
+    skills: ["Cybersecurity Foundations", "Network Security", "Linux Systems", "Windows Fundamentals", "Web Exploration"],
+    badgeUrl: "/certs/THM-PreSecurity.jpg",
+    pdfUrl: "/certs/THM-PreSecurity.pdf",
+    verifyUrl: "https://tryhackme.com/certificate/THM-1IZIJPMKPE",
+    category: "Certificate",
+    featured: true,
+  },
 ]

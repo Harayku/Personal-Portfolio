@@ -33,7 +33,7 @@ const getDemoLabel = (url) => {
  *   onClick  — optional click handler (used for certificate modal)
  */
 export default function ProjectCard({ item, onClick }) {
-  const isCert = item.category === "Awards and Honor"
+  const isCert = item.category === "Awards and Honor" || item.category === "Certificate"
 
   if (isCert) {
     return (

@@ -33,9 +33,11 @@ export default function Modal({ item, onClose }) {
     ? new Date(item.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
     : null
 
+  const isCertCategory = item.category === "Awards and Honor" || item.category === "Certificate"
+
   const formattedExpiry = item.expiryDate
     ? new Date(item.expiryDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
-    : item.category === "Awards and Honor" ? "No Expiry" : null
+    : isCertCategory ? "No Expiry" : null
 
   const displayTags = item.skills || item.tags || []
 
@@ -147,7 +149,7 @@ export default function Modal({ item, onClose }) {
           {displayTags.length > 0 && (
             <div>
               <h3 className="text-sm font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-widest mb-3">
-                {item.category === "Awards and Honor" ? "Skills Covered" : "Technologies"}
+                {isCertCategory ? "Skills Covered" : "Technologies"}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {displayTags.map((s) => (

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { MapPin, Mail, Download, CheckCircle2, ChevronRight, GraduationCap } from "lucide-react"
+import { MapPin, Mail, Download, CheckCircle2, ChevronRight, GraduationCap, FileText, ExternalLink } from "lucide-react"
 import { GithubIcon, LinkedinIcon } from "../components/SocialIcons"
 import { about } from "../data/about"
 import { projects } from "../data/projects"
@@ -102,10 +102,66 @@ export default function Home({ darkMode }) {
         {/* ABOUT TEXT */}
         <section className="mb-20">
           <h2 className="text-2xl font-extrabold mb-6 text-slate-900 dark:text-white tracking-tight">About</h2>
-          <div className="space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed text-[15px] sm:text-base">
+          <div className="space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed text-[15px] sm:text-base mb-8">
             {about.bio.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
+          </div>
+
+          {/* Certificate Preview */}
+          <div className="mt-8 pt-4 border-t border-slate-100 dark:border-slate-800/60">
+            <h3 className="text-lg font-bold mb-4 text-slate-900 dark:text-white flex items-center gap-2">
+              <FileText size={18} className="text-blue-500" />
+              Certificates
+            </h3>
+            <div className="flex flex-col gap-4">
+              <div
+                className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30 max-w-md"
+              >
+                <a
+                  href="/certs/THM-PreSecurity.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-slate-950 flex items-center justify-center relative group cursor-pointer"
+                  title="View PDF Certificate"
+                >
+                  <img
+                    src="/certs/THM-PreSecurity.jpg"
+                    alt="TryHackMe Pre-Security Certificate Preview"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <ExternalLink size={14} className="text-white drop-shadow-md" />
+                  </div>
+                </a>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1">
+                    Pre-Security Pathway Certificate
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    TryHackMe • Completed May 2026
+                  </p>
+                  <div className="flex items-center gap-4 mt-2">
+                    <a
+                      href="/certs/THM-PreSecurity.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 uppercase tracking-wider transition-colors"
+                    >
+                      View PDF &gt;
+                    </a>
+                    <a
+                      href="https://tryhackme.com/certificate/THM-1IZIJPMKPE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-400 hover:text-purple-300 uppercase tracking-wider transition-colors"
+                    >
+                      Verify Online &gt;
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
