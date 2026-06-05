@@ -15,8 +15,8 @@ export const about = {
 
   // REPLACE: 2–3 short paragraphs about yourself
   bio: [
-    "I'm a software developer with a strong focus on Web Development, Game Development and Networking & Cybersecurity.",
-    "I specialize in building games, web applications. I also have a deep passion for the lower-level aspects of computing—I enjoy debugging, binary analysis, and actively participating in CTF challenges.",
+    "I'm a Networking/Cybersecurity Enthusiast with a strong focus on Networking, Cybersecurity, Web Development, and Game Development.",
+    "I specialize in Network Security, CyberDefense, and Network Architecture. I also have a deep passion for Offensive Security and actively participating in CTF challenges.",
     "Whether I'm crafting interactive software or analyzing systems for vulnerabilities, I approach every technical challenge with curiosity and a structured mindset.",
   ],
 
