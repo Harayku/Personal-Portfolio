@@ -8,7 +8,7 @@ export const about = {
   name: "Jet Angelo Pagaduan",
 
   // REPLACE: One-line tagline shown in the hero
-  tagline: "Software Developer · Game Development · Networking · Cybersecurity",
+  tagline: "Networking · Cybersecurity · Software Developer · Game Development",
 
   // REPLACE: Your avatar/profile photo — place in /public/images/
   avatar: "/images/avatar1.png",
