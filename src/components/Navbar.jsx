@@ -1,154 +1,146 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { Menu, X, Moon, Sun } from "lucide-react"
+import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "./SocialIcons"
 import { about } from "../data/about"
 
-const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/projects", label: "Projects" },
-  { to: "/contact", label: "Contact" },
-]
-
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [projectsOpen, setProjectsOpen] = useState(false)
+  const [certsOpen, setCertsOpen] = useState(false)
 
-  // Add glass background after scrolling
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", onScroll)
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+  const toggleMenu = () => setMenuOpen(!menuOpen)
+  
+  // Close mobile menu when navigating
+  const closeMenu = () => setMenuOpen(false)
 
-  const linkClass = ({ isActive }) =>
-    `relative px-1 py-0.5 text-sm font-medium transition-colors duration-200 
-     after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-sky-400
-     after:rounded-full after:transition-all after:duration-300
-     hover:after:w-full hover:text-sky-400
-     ${isActive ? "text-sky-400 after:w-full" : "text-slate-700 dark:text-slate-300"}`
+  const navLinkClass = ({ isActive }) =>
+    `flex items-center w-full px-4 py-2 text-sm font-medium rounded-lg transition-colors
+     ${isActive ? "bg-slate-800 text-sky-400" : "text-slate-300 hover:bg-slate-800/50 hover:text-white"}`
 
-  return (
-    <header
-      role="banner"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${scrolled ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 shadow-xl shadow-black/20" : "bg-transparent"}`}
-    >
-      <nav
-        aria-label="Main navigation"
-        className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"
-      >
+  const subNavLinkClass = "block px-4 py-1.5 text-sm text-slate-400 hover:text-sky-400 transition-colors"
 
-        {/* Desktop nav links */}
-        <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
-          {navLinks.map((link) => (
-            <li key={link.to}>
-              <NavLink to={link.to} end={link.to === "/"} className={linkClass}>
-                {link.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+  const projectsCategories = ["Write-ups", "Networking", "Programming", "Multimedia", "Quality Assurance"]
+  
+  const certCategories = [
+    { name: "HACK SMARTER LABS", items: ["2026", "2025"] },
+    { name: "WEBVERSE PRO", items: ["2026", "NoshRun", "Aster Check", "Poppet"] },
+    { name: "HACKTHEBOX", items: ["2025", "2024", "2023"] }
+  ]
 
-        {/* Desktop right actions */}
-        <div className="hidden md:flex items-center gap-3">
-          {/* Social icons */}
-          <a
-            href={about.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub profile"
-            className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-200"
+  const SidebarContent = () => (
+    <div className="flex flex-col h-full bg-slate-950 border-r border-slate-800 text-slate-300 w-64">
+      {/* Header / Brand */}
+      <div className="h-16 flex items-center px-6 border-b border-slate-800 shrink-0">
+        <span className="text-xl font-bold text-white tracking-tight">{about.name.split(' ')[0]}<span className="text-sky-400">.</span></span>
+      </div>
+
+      {/* Nav Links */}
+      <nav className="flex-1 overflow-y-auto py-6 px-3 space-y-2 custom-scrollbar">
+        <NavLink to="/" end className={navLinkClass} onClick={closeMenu}>
+          About
+        </NavLink>
+
+        {/* Projects Accordion */}
+        <div>
+          <button 
+            onClick={() => setProjectsOpen(!projectsOpen)}
+            className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800/50 hover:text-white transition-colors"
           >
-            <GithubIcon size={18} />
-          </a>
-          <a
-            href={about.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn profile"
-            className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-200"
-          >
-            <LinkedinIcon size={18} />
-          </a>
-          {about.twitter && (
-            <a
-              href={about.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter / X profile"
-              className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-200"
-            >
-              <TwitterIcon size={18} />
-            </a>
-          )}
-
-          {/* Dark mode toggle */}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-            aria-pressed={darkMode}
-            className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-200"
-          >
-            {darkMode ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
+            <span>Projects</span>
+            {projectsOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
           </button>
+          
+          {projectsOpen && (
+            <div className="mt-1 ml-4 border-l border-slate-800 pl-2 space-y-1">
+              {projectsCategories.map(cat => (
+                <NavLink key={cat} to={`/projects?category=${encodeURIComponent(cat)}`} className={subNavLinkClass} onClick={closeMenu}>
+                  {cat}
+                </NavLink>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
-          className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-200"
-        >
-          {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
-        </button>
+        {/* Certificates Accordion */}
+        <div>
+          <button 
+            onClick={() => setCertsOpen(!certsOpen)}
+            className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800/50 hover:text-white transition-colors"
+          >
+            <span className="text-left">Certificates & Awards</span>
+            {certsOpen ? <ChevronDown size={16} className="shrink-0" /> : <ChevronRight size={16} className="shrink-0" />}
+          </button>
+          
+          {certsOpen && (
+            <div className="mt-2 ml-4 border-l border-slate-800 pl-2 space-y-4">
+              {certCategories.map(group => (
+                <div key={group.name} className="space-y-1">
+                  <div className="px-4 py-1 text-xs font-bold text-slate-500 tracking-wider uppercase">
+                    {group.name}
+                  </div>
+                  {group.items.map(item => (
+                    <NavLink key={item} to={`/projects?cert=${encodeURIComponent(item)}`} className={subNavLinkClass} onClick={closeMenu}>
+                      {item}
+                    </NavLink>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <NavLink to="/contact" className={navLinkClass} onClick={closeMenu}>
+          Contact
+        </NavLink>
       </nav>
 
-      {/* Mobile drawer */}
-      <div
-        id="mobile-menu"
-        role="navigation"
-        aria-label="Mobile navigation"
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out
-          ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-      >
-        <ul className="bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 px-4 pb-4 pt-2 flex flex-col gap-1 list-none m-0">
-          {navLinks.map((link) => (
-            <li key={link.to}>
-              <NavLink
-                to={link.to}
-                end={link.to === "/"}
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) =>
-                  `block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200
-                   ${isActive ? "bg-sky-500/10 text-sky-400" : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:text-white"}`
-                }
-              >
-                {link.label}
-              </NavLink>
-            </li>
-          ))}
-
-          {/* Mobile social + dark mode */}
-          <li className="flex items-center gap-2 px-4 pt-2 border-t border-slate-200 dark:border-white/5 mt-2">
-            <a href={about.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white">
-              <GithubIcon size={18} />
+      {/* Socials Footer */}
+      <div className="p-4 border-t border-slate-800 shrink-0">
+        <div className="flex items-center justify-center gap-4">
+          <a href={about.github} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+            <GithubIcon size={20} />
+          </a>
+          <a href={about.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+            <LinkedinIcon size={20} />
+          </a>
+          {about.twitter && (
+            <a href={about.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+              <TwitterIcon size={20} />
             </a>
-            <a href={about.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white">
-              <LinkedinIcon size={18} />
-            </a>
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              aria-label="Toggle dark mode"
-              className="ml-auto p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white"
-            >
-              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-          </li>
-        </ul>
+          )}
+        </div>
       </div>
-    </header>
+    </div>
+  )
+
+  return (
+    <>
+      {/* Mobile Top Bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-40 flex items-center justify-between px-4">
+        <span className="text-lg font-bold text-white tracking-tight">{about.name.split(' ')[0]}<span className="text-sky-400">.</span></span>
+        <button onClick={toggleMenu} className="p-2 text-slate-300 hover:text-white">
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer Overlay */}
+      {menuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/60 z-40 backdrop-blur-sm"
+          onClick={closeMenu}
+        />
+      )}
+
+      {/* Mobile Sidebar */}
+      <div className={`md:hidden fixed top-0 left-0 bottom-0 w-64 z-50 transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <SidebarContent />
+      </div>
+
+      {/* Desktop Sidebar */}
+      <div className="hidden md:block fixed top-0 left-0 bottom-0 w-64 z-40">
+        <SidebarContent />
+      </div>
+    </>
   )
 }

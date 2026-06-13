@@ -1,17 +1,9 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
-import { MapPin, Mail, Download, CheckCircle2, ChevronRight, GraduationCap, FileText, ExternalLink } from "lucide-react"
-import { GithubIcon, LinkedinIcon } from "../components/SocialIcons"
+import { MapPin, GraduationCap, FileText, ExternalLink, ChevronRight, Mail } from "lucide-react"
 import { about } from "../data/about"
-import { projects } from "../data/projects"
-import AvatarSequence from "../components/AvatarSequence"
-import Modal from "../components/Modal"
 
-export default function Home({ darkMode }) {
+export default function Home() {
   const [showAllSkills, setShowAllSkills] = useState(false)
-  const [selectedItem, setSelectedItem] = useState(null)
-  const featuredIds = ["prog-pathogenesis", "prog-survey", "prog-packet-flipper", "prog-library"]
-  const featuredProjects = projects.filter((p) => featuredIds.includes(p.id))
 
   const defaultCategories = ["Cybersecurity", "Programming", "Frameworks & Libraries"]
   const displayedSkills = showAllSkills
@@ -19,22 +11,16 @@ export default function Home({ darkMode }) {
     : about.skills.filter(skill => defaultCategories.includes(skill.group))
 
   return (
-    <main className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-slate-200 dark:selection:bg-slate-800 pb-24 pt-24 sm:pt-32">
-      <div className="max-w-4xl mx-auto px-6">
+    <main className="min-h-screen font-sans pb-24 animate-fade-in" style={{ animationDuration: "0.6s" }}>
+      <div className="max-w-4xl mx-auto">
 
         {/* HERO HEADER */}
-        <div className="flex flex-col sm:flex-row gap-8 mb-16 items-start animate-fade-in" style={{ animationDuration: "0.6s" }}>
-          {/* Avatar Sequence Toggle */}
-          <div className="w-40 h-40 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-            <AvatarSequence isDarkMode={darkMode} />
-          </div>
-
+        <div className="flex flex-col mb-16 items-start">
           {/* Info */}
           <div className="flex-1 w-full">
             <div className="flex items-center justify-between mb-2">
               <h1 className="text-3xl sm:text-4xl font-extrabold flex items-center gap-2 text-slate-900 dark:text-white tracking-tight">
                 {about.name}
-                <CheckCircle2 size={24} className="text-blue-500 fill-blue-500/10" />
               </h1>
             </div>
 
@@ -54,7 +40,7 @@ export default function Home({ darkMode }) {
               )}
             </div>
 
-            <h2 className="text-base sm:text-lg font-medium text-slate-800 dark:text-slate-200 mb-6 flex flex-wrap items-center gap-2">
+            <h2 className="text-base sm:text-lg font-medium text-slate-800 dark:text-slate-200 flex flex-wrap items-center gap-2">
               {about.tagline.split(' · ').map((part, i, arr) => (
                 <span key={i} className="flex items-center gap-2">
                   {part}
@@ -62,50 +48,43 @@ export default function Home({ darkMode }) {
                 </span>
               ))}
             </h2>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href={about.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-black dark:bg-white text-white dark:text-black text-sm font-semibold rounded-lg hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-sm"
-              >
-                <Download size={16} /> Download CV
-              </a>
-              <a
-                href={`mailto:${about.email}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-transparent text-slate-900 dark:text-slate-100 text-sm font-semibold rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors shadow-sm"
-              >
-                <Mail size={16} /> Send Email
-              </a>
-              <a
-                href={about.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-transparent text-slate-900 dark:text-slate-100 text-sm font-semibold rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors shadow-sm"
-              >
-                <GithubIcon size={16} /> GitHub <ChevronRight size={14} className="ml-1 text-slate-400" />
-              </a>
-              <a
-                href={about.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-transparent text-slate-900 dark:text-slate-100 text-sm font-semibold rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors shadow-sm"
-              >
-                <LinkedinIcon size={16} /> LinkedIn <ChevronRight size={14} className="ml-1 text-slate-400" />
-              </a>
-            </div>
           </div>
         </div>
 
         {/* ABOUT TEXT */}
         <section className="mb-20">
-          <h2 className="text-2xl font-extrabold mb-6 text-slate-900 dark:text-white tracking-tight">About</h2>
+          <h2 className="text-2xl font-extrabold mb-6 text-slate-900 dark:text-white tracking-tight">whoami?</h2>
           <div className="space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed text-[15px] sm:text-base mb-8">
             {about.bio.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
+          </div>
+
+          {/* Let's Connect */}
+          <div className="mt-8">
+            <h3 className="text-lg font-bold mb-4 text-slate-900 dark:text-white">Let's Connect:</h3>
+            <div className="space-y-5">
+              <div className="flex items-center gap-2 text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white w-28">Github:</span>
+                <a href={about.github} target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">{about.github.replace('https://', '')} <ExternalLink size={14} /></a>
+              </div>
+              <div className="flex items-center gap-2 text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white w-28">Linkedin:</span>
+                <a href={about.linkedin} target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">{about.linkedin.replace('https://www.', '')} <ExternalLink size={14} /></a>
+              </div>
+              <div className="flex items-center gap-2 text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white w-28">TryHackMe:</span>
+                <a href="https://tryhackme.com/p/Harayku" target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">tryhackme.com/p/Harayku <ExternalLink size={14} /></a>
+              </div>
+              <div className="flex items-center gap-2 text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white w-28">Hack The Box:</span>
+                <a href="https://profile.hackthebox.com/profile/019c361f-5b9c-7002-ad3e-fe0e4b0e9c65" target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">app.hackthebox.com/profile/Harayku <ExternalLink size={14} /></a>
+              </div>
+              <div className="flex items-center gap-2 text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white w-28">Email:</span>
+                <a href={`mailto:${about.email}`} className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">{about.email} <Mail size={14} /></a>
+              </div>
+            </div>
           </div>
 
           {/* Certificate Preview */}
@@ -115,9 +94,7 @@ export default function Home({ darkMode }) {
               Certificates
             </h3>
             <div className="flex flex-col gap-4">
-              <div
-                className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30 max-w-md"
-              >
+              <div className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30 max-w-md">
                 <a
                   href="/certs/THM-PreSecurity.pdf"
                   target="_blank"
@@ -200,60 +177,7 @@ export default function Home({ darkMode }) {
           </div>
         </section>
 
-        <hr className="border-slate-100 dark:border-slate-800/60 mb-16" />
-
-        {/* PROJECTS */}
-        <section id="projects">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Projects</h2>
-            <Link
-              to="/projects"
-              className="text-sm font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1"
-            >
-              View All <ChevronRight size={16} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {featuredProjects.map((project) => {
-              let tagLabel = project.tags && project.tags.length > 0 ? project.tags[0] : "Project";
-              if (project.demoUrl && project.demoUrl !== "#" && project.demoUrl.startsWith("http")) {
-                try {
-                  tagLabel = new URL(project.demoUrl).hostname.replace("www.", "");
-                } catch {
-                  // Fallback to default tagLabel if URL parsing fails
-                }
-              }
-
-              return (
-                <div
-                  key={project.id}
-                  onClick={() => setSelectedItem(project)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setSelectedItem(project)}
-                  className="p-6 rounded-2xl bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors flex flex-col h-full group cursor-pointer shadow-sm hover:shadow-md"
-                >
-                  <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-[15px] text-slate-600 dark:text-slate-400 mb-6 flex-grow leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-                  <div className="mt-auto">
-                    <span className="inline-block px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-mono font-semibold rounded">
-                      {tagLabel}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
       </div>
-
-      <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </main>
   )
 }

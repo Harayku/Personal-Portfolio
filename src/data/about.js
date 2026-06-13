@@ -11,7 +11,7 @@ export const about = {
   tagline: "Networking · Cybersecurity · Full-Stack Developer · Game Development",
 
   // REPLACE: Your avatar/profile photo — place in /public/images/
-  avatar: "/images/avatar1.png",
+  avatar: "/avatars/avatar1.png",
 
   // REPLACE: 2–3 short paragraphs about yourself
   bio: [
