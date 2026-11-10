@@ -54,7 +54,7 @@ export default function Sidebar({ onNavigate }) {
           <NavLink to="/" end onClick={() => onNavigate?.()} className={({isActive}) => `block text-[14px] font-medium transition-colors ${isActive ? 'text-white' : 'text-[#d4d4d4] hover:text-white'}`}>About Me</NavLink>
           <NavLink to="/projects" end onClick={() => onNavigate?.()} className={({isActive}) => `block text-[14px] font-medium transition-colors ${isActive ? 'text-white' : 'text-[#d4d4d4] hover:text-white'}`}>Projects Overview</NavLink>
           <a
-            href={about.resumeUrl || "/Resume.pdf"}
+            href={about.resumeUrl || "/resume.pdf"}
             target="_blank"
             rel="noreferrer"
             onClick={() => onNavigate?.()}

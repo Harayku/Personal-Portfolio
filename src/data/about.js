@@ -34,7 +34,7 @@ export const about = {
   facebook: "https://www.facebook.com/profile.php?id=61590580520691",
 
   // REPLACE: Your CV/resume PDF — place in /public/
-  resumeUrl: "/Resume.pdf",
+  resumeUrl: "/resume.pdf",
 
   skills: [
     {

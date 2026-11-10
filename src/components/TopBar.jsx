@@ -48,7 +48,7 @@ export default function TopBar({ mobileMenuOpen, onToggleMobileMenu }) {
                 <span>LinkedIn</span>
               </a>
               <a
-                href={about.resumeUrl || "/Resume.pdf"}
+                href={about.resumeUrl || "/resume.pdf"}
                 target="_blank"
                 rel="noreferrer"
                 className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors"
