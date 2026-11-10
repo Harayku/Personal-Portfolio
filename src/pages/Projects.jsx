@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { useSearchParams, Link } from "react-router-dom"
-import { ChevronRight, ChevronLeft, Copy, ExternalLink } from "lucide-react"
+import { ChevronRight, ChevronLeft, ExternalLink, Image as ImageIcon } from "lucide-react"
 import { GithubIcon } from "../components/SocialIcons"
 import { projects } from "../data/projects"
 
@@ -51,29 +51,104 @@ export default function Projects() {
     return (
       <div className="text-[#d4d4d4] animate-fade-in pb-24">
         {/* Header section */}
-        <div className="flex flex-col md:flex-row md:items-start justify-between mb-8">
-          <div>
-            <h2 className="text-[11px] font-bold text-[#3b82f6] uppercase tracking-wider mb-3">
-              {activeProject.category}
-            </h2>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
-              {activeProject.title}
-            </h1>
-          </div>
-
-          <div className="mt-4 md:mt-0 flex items-center gap-2">
-             <button className="flex items-center gap-2 px-3 py-1.5 border border-[#2a2b2f] rounded-lg text-[13px] text-[#a1a1a1] hover:text-white hover:bg-[#1a1b1f] transition-colors">
-              <Copy size={14} />
-              <span>Copy Link</span>
-            </button>
-          </div>
+        <div className="mb-8">
+          <h2 className="text-[11px] font-bold text-[#3b82f6] uppercase tracking-wider mb-2">
+            {activeProject.category}
+          </h2>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">
+            {activeProject.title}
+          </h1>
+          {(activeProject.company || activeProject.role || activeProject.period) && (
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-[#a1a1a1] mb-2">
+              {activeProject.company && (
+                <span className="font-semibold text-white">{activeProject.company}</span>
+              )}
+              {activeProject.location && <span>• {activeProject.location}</span>}
+              {activeProject.period && (
+                <span className="px-2.5 py-0.5 text-xs rounded-full bg-[#1a1b1f] border border-[#2a2b2f] text-[#3b82f6] font-medium">
+                  {activeProject.period}
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Main Content Area */}
-        <div className="prose prose-invert max-w-none">
-          <p className="text-[15px] leading-relaxed text-[#a1a1a1] mb-8">
-            {activeProject.longDescription || activeProject.description}
-          </p>
+        <div className="max-w-none">
+          {activeProject.highlights && activeProject.highlights.length > 0 ? (
+            <div className="space-y-6 mb-8">
+              {activeProject.description && (
+                <p className="text-[15px] leading-relaxed text-[#d4d4d4] mb-6 bg-[#1a1b1f]/60 p-4 rounded-xl border border-[#2a2b2f]">
+                  {activeProject.description}
+                </p>
+              )}
+              <div className="space-y-4">
+                {activeProject.highlights.map((item, idx) => (
+                  <div key={idx} className="border-l-2 border-[#3b82f6] pl-4 py-2 bg-[#141518]/60 rounded-r-xl border border-y-transparent border-r-transparent hover:border-l-[#60a5fa] transition-colors">
+                    <h4 className="text-[14px] font-bold text-white mb-1.5">
+                      {item.title}
+                    </h4>
+                    <p className="text-[13px] leading-relaxed text-[#a1a1a1]">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              {activeProject.gallery && activeProject.gallery.length > 0 && (
+                <div className="mt-8 pt-6 border-t border-[#2a2b2f]">
+                  <h3 className="text-lg font-bold text-white mb-4 tracking-tight">
+                    Documentation &amp; Gallery
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {activeProject.gallery.map((photo, idx) => {
+                      const imgSrc = typeof photo === "string" ? photo : photo?.src
+                      return (
+                        <div
+                          key={idx}
+                          className="rounded-xl overflow-hidden border border-[#2a2b2f] bg-[#141518]/80 flex flex-col"
+                        >
+                          {imgSrc ? (
+                            <div className="aspect-video w-full overflow-hidden bg-[#0f1012]">
+                              <img
+                                src={imgSrc}
+                                alt={`Gallery photo ${idx + 1}`}
+                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+                          ) : (
+                            <div className="aspect-video w-full flex flex-col items-center justify-center bg-[#151619] text-[#5a5a5a] gap-2 p-6">
+                              <ImageIcon size={28} className="text-[#3b82f6]/60" />
+                              <span className="text-[11px] font-mono uppercase tracking-wider text-[#6a6a6a]">
+                                Image Placeholder
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+              {activeProject.reflections && (
+                <div className="mt-8 pt-6 border-t border-[#2a2b2f]">
+                  <h3 className="text-lg font-bold text-white mb-3 tracking-tight">
+                    Reflections
+                  </h3>
+                  <div className="p-4 rounded-xl bg-[#1a1b1f]/60 border border-[#2a2b2f] text-[14px] leading-relaxed text-[#d4d4d4]">
+                    {activeProject.reflections}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="text-[15px] leading-relaxed text-[#a1a1a1] mb-8 space-y-4">
+              {(activeProject.longDescription || activeProject.description)
+                .split('\n\n')
+                .map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+            </div>
+          )}
 
           {activeProject.image && (
             <div className="mb-8 rounded-xl overflow-hidden border border-[#2a2b2f] bg-[#151619]">

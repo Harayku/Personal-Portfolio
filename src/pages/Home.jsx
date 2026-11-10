@@ -70,26 +70,26 @@ export default function Home() {
           {/* Let's Connect */}
           <div className="mt-8">
             <h3 className="text-lg font-bold mb-4 text-slate-900 dark:text-white">Let's Connect:</h3>
-            <div className="space-y-5">
-              <div className="flex items-center gap-2 text-[15px]">
-                <span className="font-bold text-slate-900 dark:text-white w-28">Github:</span>
-                <a href={about.github} target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">{about.github.replace('https://', '')} <ExternalLink size={14} /></a>
+            <div className="space-y-4 sm:space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2 text-sm sm:text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white sm:w-28 shrink-0">Github:</span>
+                <a href={about.github} target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 inline-flex items-center gap-1 transition-colors break-all">{about.github.replace('https://', '')} <ExternalLink size={14} className="shrink-0" /></a>
               </div>
-              <div className="flex items-center gap-2 text-[15px]">
-                <span className="font-bold text-slate-900 dark:text-white w-28">Linkedin:</span>
-                <a href={about.linkedin} target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">{about.linkedin.replace('https://www.', '')} <ExternalLink size={14} /></a>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2 text-sm sm:text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white sm:w-28 shrink-0">Linkedin:</span>
+                <a href={about.linkedin} target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 inline-flex items-center gap-1 transition-colors break-all">{about.linkedin.replace('https://www.', '')} <ExternalLink size={14} className="shrink-0" /></a>
               </div>
-              <div className="flex items-center gap-2 text-[15px]">
-                <span className="font-bold text-slate-900 dark:text-white w-28">TryHackMe:</span>
-                <a href="https://tryhackme.com/p/Harayku" target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">tryhackme.com/p/Harayku <ExternalLink size={14} /></a>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2 text-sm sm:text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white sm:w-28 shrink-0">TryHackMe:</span>
+                <a href="https://tryhackme.com/p/Harayku" target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 inline-flex items-center gap-1 transition-colors break-all">tryhackme.com/p/Harayku <ExternalLink size={14} className="shrink-0" /></a>
               </div>
-              <div className="flex items-center gap-2 text-[15px]">
-                <span className="font-bold text-slate-900 dark:text-white w-28">Hack The Box:</span>
-                <a href="https://profile.hackthebox.com/profile/019c361f-5b9c-7002-ad3e-fe0e4b0e9c65" target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">app.hackthebox.com/profile/Harayku <ExternalLink size={14} /></a>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2 text-sm sm:text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white sm:w-28 shrink-0">Hack The Box:</span>
+                <a href="https://profile.hackthebox.com/profile/019c361f-5b9c-7002-ad3e-fe0e4b0e9c65" target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-400 inline-flex items-center gap-1 transition-colors break-all">app.hackthebox.com/profile/Harayku <ExternalLink size={14} className="shrink-0" /></a>
               </div>
-              <div className="flex items-center gap-2 text-[15px]">
-                <span className="font-bold text-slate-900 dark:text-white w-28">Email:</span>
-                <a href={`mailto:${about.email}`} className="text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-colors">{about.email} <Mail size={14} /></a>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2 text-sm sm:text-[15px]">
+                <span className="font-bold text-slate-900 dark:text-white sm:w-28 shrink-0">Email:</span>
+                <a href={`mailto:${about.email}`} className="text-blue-500 hover:text-blue-400 inline-flex items-center gap-1 transition-colors break-all">{about.email} <Mail size={14} className="shrink-0" /></a>
               </div>
             </div>
           </div>

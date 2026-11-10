@@ -2,8 +2,9 @@ import { useState, useMemo } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { ChevronRight, ChevronDown } from "lucide-react"
 import { projects } from "../data/projects"
+import { about } from "../data/about"
 
-export default function Sidebar() {
+export default function Sidebar({ onNavigate }) {
   const location = useLocation()
   
   // Group projects by category
@@ -50,9 +51,17 @@ export default function Sidebar() {
     <div className="w-64 md:w-72 flex-shrink-0 bg-[#0f0f11] border-r border-[#2a2b2f] flex flex-col h-[calc(100vh-3.5rem)] sticky top-14">
       <div className="flex-1 overflow-y-auto custom-scrollbar py-6">
         <div className="px-5 mb-6 space-y-3">
-          <NavLink to="/" end className={({isActive}) => `block text-[14px] font-medium transition-colors ${isActive ? 'text-white' : 'text-[#d4d4d4] hover:text-white'}`}>About Me</NavLink>
-          <NavLink to="/contact" className={({isActive}) => `block text-[14px] font-medium transition-colors ${isActive ? 'text-white' : 'text-[#d4d4d4] hover:text-white'}`}>Contact</NavLink>
-          <NavLink to="/projects" end className={({isActive}) => `block text-[14px] font-medium transition-colors ${isActive ? 'text-white' : 'text-[#d4d4d4] hover:text-white'}`}>Projects Overview</NavLink>
+          <NavLink to="/" end onClick={() => onNavigate?.()} className={({isActive}) => `block text-[14px] font-medium transition-colors ${isActive ? 'text-white' : 'text-[#d4d4d4] hover:text-white'}`}>About Me</NavLink>
+          <NavLink to="/projects" end onClick={() => onNavigate?.()} className={({isActive}) => `block text-[14px] font-medium transition-colors ${isActive ? 'text-white' : 'text-[#d4d4d4] hover:text-white'}`}>Projects Overview</NavLink>
+          <a
+            href={about.resumeUrl || "/Resume.pdf"}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => onNavigate?.()}
+            className="block sm:hidden text-[14px] font-medium text-[#d4d4d4] hover:text-white transition-colors"
+          >
+            Resume (PDF)
+          </a>
         </div>
 
         <nav className="space-y-6">
@@ -85,6 +94,7 @@ export default function Sidebar() {
                               <li key={project.id}>
                                 <NavLink 
                                   to={`/projects?project=${project.id}`} 
+                                  onClick={() => onNavigate?.()}
                                   className={`block py-1.5 text-[13px] transition-colors line-clamp-1 pr-2 ${isActive ? 'text-white font-medium' : 'text-[#a1a1a1] hover:text-[#d4d4d4]'}`}
                                   title={project.title}
                                 >

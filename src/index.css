@@ -209,3 +209,59 @@ html.dark .input-field {
   clip: auto;
   white-space: normal;
 }
+
+/* ── 3D Digital Calling Card (CR80 Polycarbonate ID) ─────────────── */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.cr80-guilloche {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.015) 0px,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(59, 130, 246, 0.02) 0px,
+      rgba(59, 130, 246, 0.02) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+}
+
+.holo-sheen {
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(56, 189, 248, 0.22) 38%,
+    rgba(168, 85, 247, 0.25) 48%,
+    rgba(250, 204, 21, 0.2) 56%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  background-size: 200% 200%;
+  animation: holoShift 5s ease-in-out infinite;
+}
+
+@keyframes holoShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}

@@ -89,10 +89,6 @@ export default function Navbar() {
             </div>
           )}
         </div>
-
-        <NavLink to="/contact" className={navLinkClass} onClick={closeMenu}>
-          Contact
-        </NavLink>
       </nav>
 
       {/* Socials Footer */}

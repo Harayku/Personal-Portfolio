@@ -15,9 +15,7 @@ export const about = {
 
   // REPLACE: 2–3 short paragraphs about yourself
   bio: [
-    "I'm a Networking/Cybersecurity Enthusiast with a strong focus on Networking, Cybersecurity, Web Development, and Game Development.",
-    "I specialize in Network Security, CyberDefense, and Network Architecture. I also have a deep passion for Offensive Security and actively participating in CTF challenges.",
-    "Whether I'm crafting interactive software or analyzing systems for vulnerabilities, I approach every technical challenge with curiosity and a structured mindset.",
+    "Network and Cybersecurity practitioner with hands-on experience in network security management, firewall administration, and endpoint defense, complemented by a background in full-stack web and game development. Actively expanding into offensive security and Vulnerability Assessment and Penetration Testing (VAPT) through dedicated lab environments and competitive CTFs.",
   ],
 
   // REPLACE: Your real location
@@ -36,20 +34,20 @@ export const about = {
   facebook: "https://www.facebook.com/profile.php?id=61590580520691",
 
   // REPLACE: Your CV/resume PDF — place in /public/
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Resume.pdf",
 
   skills: [
     {
       group: "Networking",
       items: [
         "VLAN",
-        "Routing (OSPF / RIP)",
+        "Routing",
         "SD-WAN (Versa)",
         "Firewalls (WatchGuard & Sophos)",
         "EDR / XDR / MDR / NDR",
         "PBX Systems",
         "FDAS",
-        "Packet Tracer",
+        "Active Directory",
       ],
     },
     {
@@ -74,7 +72,7 @@ export const about = {
     },
     {
       group: "Database",
-      items: ["MySQL", "PHPMyAdmin", "MongoDB", "Microsoft SQL Server", "PostgreSQL"],
+      items: ["MySQL", "PHPMyAdmin", "MongoDB", "Microsoft SQL Server", "PostgreSQL", "SQLite"],
     },
     {
       group: "DevOps & Cloud",
@@ -82,7 +80,7 @@ export const about = {
     },
     {
       group: "Collaboration & Management",
-      items: ["Jira", "Trello", "MS Teams", "Discord"],
+      items: ["Jira", "Trello", "MS Teams", "Discord", "Viber"],
     },
     {
       group: "Multimedia",

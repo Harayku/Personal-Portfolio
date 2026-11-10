@@ -5,6 +5,78 @@
  */
 
 export const projects = [
+  // ─── EXPERIENCE ───────────────────────────────────────────────────────────
+  {
+    id: "exp-intellyx",
+    category: "Experience",
+    title: "Solutions Engineer — Intellyx IT Solutions",
+    role: "Solutions Engineer",
+    company: "Intellyx IT Solutions",
+    location: "Malabon, Metro Manila, Philippines",
+    period: "July 2026 – October 2026",
+    description:
+      "Completed an intensive 486-hour Solutions Engineering internship specializing in enterprise network security management, Next-Gen Firewall (NGFW) administration, Versa SD-WAN deployments, PBX VoIP telephony, endpoint defense, and IT workflow automation.",
+    longDescription:
+      "Completed an intensive 486-hour Solutions Engineering internship specializing in enterprise network security management, Next-Gen Firewall (NGFW) administration, Versa SD-WAN deployments, PBX VoIP telephony, endpoint defense, and IT workflow automation.",
+    highlights: [
+      {
+        title: "Next-Generation Firewall (NGFW) Administration & Security Services",
+        description:
+          "Configured, deployed, and administered WatchGuard Firebox (locally managed & WatchGuard Cloud) and Sophos XGS Firewalls, provisioning interfaces, DHCP servers, VLAN segmentation, and perimeter security policies. Implemented and monitored WatchGuard Security Services (IPS, Gateway AntiVirus, WebBlocker, Application Control, and telemetry logging) to defend client perimeters. Diagnosed and resolved client-side WatchGuard endpoint agent installation failures on enterprise workstations.",
+      },
+      {
+        title: "Enterprise SD-WAN & Multi-Branch Telephony Deployment",
+        description:
+          "Managed staging, pre-deployment configuration, and handover of Versa SD-WAN appliances for enterprise and multi-branch clients, validating cross-branch routing and secure site-to-site connectivity via the Versa Portal. Deployed, configured, and maintained enterprise Grandstream PBX (UCM series) telephony systems across client sites, configuring dial plans, extension routing, and VoIP trunking. Monitored cross-branch telephony connectivity over Versa SD-WAN and assisted in migrating telephony authentication from legacy RADIUS to Sophos firewall gateway security.",
+      },
+      {
+        title: "Endpoint Defense, Threat Intelligence & VAPT Scoping",
+        description:
+          "Participated in vendor scoping, proof-of-concept (PoC) technical evaluations, and implementation reviews for enterprise endpoint detection and response (EDR/XDR) architectures including SentinelOne, ESET Cybersecurity, and Check Point Software solutions. Collaborated in technical scoping sessions with Indusface to evaluate web application Vulnerability Assessment and Penetration Testing (VAPT) methodologies and cloud security posture management. Completed technical L1 competency assessments on Sophos Endpoint/Firewall architectures and WatchGuard Network Security Essentials.",
+      },
+      {
+        title: "Network Infrastructure Staging, Structured Cabling & Preventive Maintenance (PMS)",
+        description:
+          "Configured and deployed Ubiquiti UniFi Access Points (APs), implementing wireless LAN segmentation, SSID management, and cross-LAN connectivity validation. Decommissioned, formatted, benchmarked, and maintained on-premise physical servers, collaborating on managed switch rack-mount installations in core data racks. Performed hands-on structured cabling: terminated and crimped Cat6 keystone jacks, punched down patch panels, and validated cable run continuity. Conducted on-site Preventive Maintenance Services (PMS) on enterprise servers, core switches, and CCTV surveillance networks across commercial branch facilities. Executed field inspections, pullout, and operational testing of Fire Detection and Alarm Systems (FDAS) and smoke detector sensors at commercial venues.",
+      },
+      {
+        title: "AI Workflow Automation & IT Service Management",
+        description:
+          "Designed and deployed automated email dispatch pipelines and IT support ticketing automation utilizing Google Workspace Studio AI, significantly accelerating support response times and eliminating manual clerical coordination for incoming technical tickets.",
+      },
+      {
+        title: "Continuous Technical Training & Competency Certifications",
+        description:
+          "Completed vendor-led technical certifications and training workshops, including MEC Networks – Huawei eKit Solutions (hands-on configuration of commercial routers, enterprise switches, and APs for SMBs) and WatchGuard Cloud-Managed Network Security Essentials.",
+      },
+    ],
+    reflections:
+      "Serving as a Solutions Engineer at Intellyx IT Solutions bridged the gap between theoretical networking concepts and real-world enterprise infrastructure. Working directly with production Next-Gen Firewalls, SD-WAN architectures, endpoint defense platforms, and VoIP telephony taught me that effective security isn't just about configuring isolated appliances-it's about designing cohesive, resilient systems tailored to each organization's operational needs. From troubleshooting live network bottlenecks and conducting on-site preventive maintenance to scoping VAPT engagements and automating internal workflows, this experience solidified my engineering mindset and deepened my commitment to building and defending secure network infrastructures.",
+    gallery: [
+      { src: "/images/OJT_I1.jpg" },
+      { src: "/images/OJT_I2.jpg" },
+      { src: "/images/OJT_I3.jpg" },
+      { src: "/images/OJT_I4.jpg" },
+    ],
+    tags: [
+      "Network Security",
+      "WatchGuard Firebox",
+      "Sophos XGS",
+      "SD-WAN (Versa)",
+      "Grandstream PBX (UCM)",
+      "VLAN",
+      "Routing",
+      "EDR / XDR",
+      "VAPT Scoping",
+      "FDAS",
+      "Ubiquiti UniFi",
+      "Google Studio AI",
+    ],
+    image: null,
+    demoUrl: null,
+    githubUrl: null,
+    featured: true,
+  },
   // ─── PROGRAMMING ──────────────────────────────────────────────────────────
   {
     id: "prog-dormitory",
