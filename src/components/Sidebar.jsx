@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react"
 import { NavLink, useLocation } from "react-router-dom"
-import { ChevronRight, ChevronDown, Layers } from "lucide-react"
+import { ChevronRight, ChevronDown } from "lucide-react"
 import { projects } from "../data/projects"
 
 export default function Sidebar() {
@@ -16,7 +16,20 @@ export default function Sidebar() {
     return map
   }, [])
 
-  const categoryNames = Object.keys(categoriesMap)
+  const baseCategories = useMemo(() => [
+    "Experience",
+    "Programming",
+    "Cybersecurity & Networking",
+    "Multimedia",
+    "Quality Assurance",
+  ], [])
+
+  const categoryNames = useMemo(() => {
+    const extra = Object.keys(categoriesMap).filter(
+      c => !baseCategories.includes(c) && c !== "Write Ups" && c !== "Write-ups"
+    )
+    return [...baseCategories, ...extra]
+  }, [categoriesMap, baseCategories])
 
   // Start with all categories closed by default
   const [openSections, setOpenSections] = useState(() => {
@@ -24,6 +37,8 @@ export default function Sidebar() {
     categoryNames.forEach(cat => { initialState[cat] = false })
     initialState['certificates'] = false
     initialState['awards'] = false
+    initialState['seminars'] = false
+    initialState['writeups'] = false
     return initialState
   })
 
@@ -43,7 +58,7 @@ export default function Sidebar() {
         <nav className="space-y-6">
           {categoryNames.map(category => {
             const isOpen = openSections[category]
-            const categoryProjects = categoriesMap[category]
+            const categoryProjects = categoriesMap[category] || []
 
             return (
               <div key={category}>
@@ -56,25 +71,33 @@ export default function Sidebar() {
                       onClick={() => toggleSection(category)}
                       className={`w-full flex items-center justify-between px-5 py-1.5 text-[13px] ${isOpen ? 'text-[#3b82f6]' : 'text-[#a1a1a1] hover:bg-[#1a1b1f] hover:text-[#d4d4d4]'} transition-colors`}
                     >
-                      <span className="text-left font-medium">Projects List</span>
+                      <span className="text-left font-medium">
+                        {category === "Experience" ? "View Experience" : "Projects List"}
+                      </span>
                       {isOpen ? <ChevronDown size={14} className="text-[#3b82f6] shrink-0" /> : <ChevronRight size={14} className="text-[#5a5a5a] shrink-0" />}
                     </button>
                     {isOpen && (
                       <ul className="mt-0.5 border-l border-[#2a2b2f] ml-7 pl-3 space-y-0.5">
-                        {categoryProjects.map(project => {
-                          const isActive = location.search.includes(`project=${project.id}`)
-                          return (
-                            <li key={project.id}>
-                              <NavLink 
-                                to={`/projects?project=${project.id}`} 
-                                className={`block py-1.5 text-[13px] transition-colors line-clamp-1 pr-2 ${isActive ? 'text-white font-medium' : 'text-[#a1a1a1] hover:text-[#d4d4d4]'}`}
-                                title={project.title}
-                              >
-                                {project.title}
-                              </NavLink>
-                            </li>
-                          )
-                        })}
+                        {categoryProjects.length > 0 ? (
+                          categoryProjects.map(project => {
+                            const isActive = location.search.includes(`project=${project.id}`)
+                            return (
+                              <li key={project.id}>
+                                <NavLink 
+                                  to={`/projects?project=${project.id}`} 
+                                  className={`block py-1.5 text-[13px] transition-colors line-clamp-1 pr-2 ${isActive ? 'text-white font-medium' : 'text-[#a1a1a1] hover:text-[#d4d4d4]'}`}
+                                  title={project.title}
+                                >
+                                  {project.title}
+                                </NavLink>
+                              </li>
+                            )
+                          })
+                        ) : (
+                          <li className="py-1 text-[12px] text-[#6a6a6a] italic">
+                            {category === "Experience" ? "No experience yet" : "No projects yet"}
+                          </li>
+                        )}
                       </ul>
                     )}
                   </li>
@@ -98,15 +121,82 @@ export default function Sidebar() {
                 {openSections['certificates'] ? <ChevronDown size={14} className="text-[#3b82f6] shrink-0" /> : <ChevronRight size={14} className="text-[#5a5a5a] shrink-0" />}
               </button>
               {openSections['certificates'] && (
-                <ul className="mt-1 mb-2">
+                <ul className="mt-1 mb-2 space-y-0.5">
                   <li>
                     <a 
                       href="/certs/THM-PreSecurity.pdf" 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6]"
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Pre-Security Pathway"
                     >
                       Pre-Security Pathway
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/THM-JrPenetrationTester.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Jr Penetration Tester Learning Path"
+                    >
+                      Jr Penetration Tester
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/THM-CyberSecurity.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Cyber Security 101 Learning Path"
+                    >
+                      Cyber Security 101
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/Appkademiya-CCP.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Certified Cybersecurity Professional (CCP)"
+                    >
+                      Certified Cybersecurity Professional (CCP)
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/OPSWAT- introduction_to_cip.png" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Introduction to Critical Infrastructure Protection (ICIP)"
+                    >
+                      OPSWAT – Intro to CIP
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/Cisco_Getting_Started_With_CPT.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Getting Started with Cisco Packet Tracer"
+                    >
+                      Getting Started with Cisco Packet Tracer
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/dict-cyberpro-badge.png" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="DICT Cybersecurity Professional (Level 1 — Entry-Level)"
+                    >
+                      DICT Cybersecurity Professional (Level 1)
                     </a>
                   </li>
                 </ul>
@@ -162,6 +252,149 @@ export default function Sidebar() {
                       Consistent Dean's Lister
                     </a>
                   </li>
+                  <li>
+                    <a 
+                      href="/certs/CHRONOS-CTF.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="CSCTF 2026: Total Warfare"
+                    >
+                      CSCTF 2026: Total Warfare
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/CyberPHCTF.png" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Packet Capture: Beneath the Network CTF (4th Place)"
+                    >
+                      Packet Capture CTF - 4th Place
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/SecLeaf_Q4_CTF_2026_Certificate_Jet_Angelo.png" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="SecLeaf Q4 Operations CTF"
+                    >
+                      SecLeaf Q4 Operations CTF
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li>
+              <button 
+                onClick={() => toggleSection('seminars')}
+                className={`w-full flex items-center justify-between px-5 py-1.5 text-[13px] ${openSections['seminars'] ? 'text-[#3b82f6]' : 'text-[#a1a1a1] hover:bg-[#1a1b1f] hover:text-[#d4d4d4]'} transition-colors`}
+              >
+                <span className="text-left font-medium">View Seminars</span>
+                {openSections['seminars'] ? <ChevronDown size={14} className="text-[#3b82f6] shrink-0" /> : <ChevronRight size={14} className="text-[#5a5a5a] shrink-0" />}
+              </button>
+              {openSections['seminars'] && (
+                <ul className="mt-1 mb-2 space-y-0.5">
+                  <li>
+                    <a 
+                      href="/certs/AlteredSec-COP-FromInitialAccesstoPersistenceAbusingSyncedPassketsinAzure.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="From Initial Access to Persistence: Abusing Synced Passkeys in Azure"
+                    >
+                      Abusing Synced Passkeys in Azure
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/AlteredSec-COP-HackingBrowsersTheEasyWay.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Hacking Browsers The Easy Way"
+                    >
+                      Hacking Browsers The Easy Way
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/AlteredSec-COP-HoundMasker.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="HoundMasker: Privacy-Preserving Attack Path Analysis for BloodHound in the LLM Era"
+                    >
+                      HoundMasker Attack Path Analysis
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/CWL-COA-AutomatingPassiveWebApplicationReconwithn8nAIWebinar.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="Automating Passive Web Application Recon with n8n & AI"
+                    >
+                      Automating Passive Web Recon (n8n & AI)
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/certs/MEC-Huawei-eKit.pdf" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block pl-9 pr-5 py-1.5 text-[13px] text-[#a1a1a1] hover:text-[#d4d4d4] transition-colors border-l-2 border-transparent hover:border-[#3b82f6] truncate"
+                      title="MEC – Huawei eKit Technical Training"
+                    >
+                      MEC – Huawei eKit Technical Training
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+        </div>
+
+        {/* WRITE UPS */}
+        <div className="mt-8">
+          <h3 className="px-5 text-[11px] font-bold text-[#7a7a7a] mb-2 tracking-wider uppercase">
+            WRITE UPS
+          </h3>
+          <ul className="space-y-0.5">
+            <li>
+              <button 
+                onClick={() => toggleSection('writeups')}
+                className={`w-full flex items-center justify-between px-5 py-1.5 text-[13px] ${openSections['writeups'] ? 'text-[#3b82f6]' : 'text-[#a1a1a1] hover:bg-[#1a1b1f] hover:text-[#d4d4d4]'} transition-colors`}
+              >
+                <span className="text-left font-medium">View Write Ups</span>
+                {openSections['writeups'] ? <ChevronDown size={14} className="text-[#3b82f6] shrink-0" /> : <ChevronRight size={14} className="text-[#5a5a5a] shrink-0" />}
+              </button>
+              {openSections['writeups'] && (
+                <ul className="mt-0.5 border-l border-[#2a2b2f] ml-7 pl-3 space-y-0.5">
+                  {(categoriesMap['Write Ups'] || categoriesMap['Write-ups'] || []).length > 0 ? (
+                    (categoriesMap['Write Ups'] || categoriesMap['Write-ups']).map(project => {
+                      const isActive = location.search.includes(`project=${project.id}`)
+                      return (
+                        <li key={project.id}>
+                          <NavLink 
+                            to={`/projects?project=${project.id}`} 
+                            className={`block py-1.5 text-[13px] transition-colors line-clamp-1 pr-2 ${isActive ? 'text-white font-medium' : 'text-[#a1a1a1] hover:text-[#d4d4d4]'}`}
+                            title={project.title}
+                          >
+                            {project.title}
+                          </NavLink>
+                        </li>
+                      )
+                    })
+                  ) : (
+                    <li className="py-1 text-[12px] text-[#6a6a6a] italic">
+                      No write-ups yet
+                    </li>
+                  )}
                 </ul>
               )}
             </li>

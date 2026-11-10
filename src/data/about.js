@@ -24,7 +24,7 @@ export const about = {
   location: "Valenzuela City, Philippines",
 
   // REPLACE: Your professional email
-  email: "jetangelo04.jp@gmail.com",
+  email: "jetangelo67@gmail.com",
 
   // REPLACE: Your GitHub username
   github: "https://github.com/Harayku",
@@ -45,11 +45,11 @@ export const about = {
     },
     {
       group: "Cybersecurity",
-      items: ["Kali Linux", "Nmap", "Wireshark", "Metasploit", "IDA/Ghidra", "BurpSuite", "GDB", "OSINT", "Forensic", "CTF Challenges"],
+      items: ["Kali Linux", "Nmap", "Wireshark", "Metasploit", "Reverse Engineer", "Web Exploit", "OSINT", "Forensic", "CTF Challenges"],
     },
     {
       group: "Programming",
-      items: ["C#", "JavaScript", "Python", "Java", "C", "PHP", "HTML / CSS", "React"],
+      items: ["C#", "JavaScript", "Python", "Java", "C", "PHP", "HTML / CSS"],
     },
     {
       group: "Frameworks & Libraries",

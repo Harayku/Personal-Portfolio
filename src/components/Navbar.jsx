@@ -20,7 +20,7 @@ export default function Navbar() {
 
   const subNavLinkClass = "block px-4 py-1.5 text-sm text-slate-400 hover:text-sky-400 transition-colors"
 
-  const projectsCategories = ["Write-ups", "Networking", "Programming", "Multimedia", "Quality Assurance"]
+  const projectsCategories = ["Experience", "Programming", "Cybersecurity & Networking", "Multimedia", "Quality Assurance", "Write Ups"]
   
   const certCategories = [
     { name: "HACK SMARTER LABS", items: ["2026", "2025"] },
@@ -28,7 +28,7 @@ export default function Navbar() {
     { name: "HACKTHEBOX", items: ["2025", "2024", "2023"] }
   ]
 
-  const SidebarContent = () => (
+  const sidebarContent = (
     <div className="flex flex-col h-full bg-slate-950 border-r border-slate-800 text-slate-300 w-64">
       {/* Header / Brand */}
       <div className="h-16 flex items-center px-6 border-b border-slate-800 shrink-0">
@@ -134,12 +134,12 @@ export default function Navbar() {
 
       {/* Mobile Sidebar */}
       <div className={`md:hidden fixed top-0 left-0 bottom-0 w-64 z-50 transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <SidebarContent />
+        {sidebarContent}
       </div>
 
       {/* Desktop Sidebar */}
       <div className="hidden md:block fixed top-0 left-0 bottom-0 w-64 z-40">
-        <SidebarContent />
+        {sidebarContent}
       </div>
     </>
   )

@@ -90,10 +90,10 @@ export const projects = [
     githubUrl: null,
     featured: true,
   },
-  // ─── NETWORKING ───────────────────────────────────────────────────────────
+  // ─── CYBERSECURITY & NETWORKING ───────────────────────────────────────────
   {
     id: "net-floor-proposal",
-    category: "Networking",
+    category: "Cybersecurity & Networking",
     title: "Office Floor Plan Network Design Proposal",
     description:
       "A comprehensive network infrastructure proposal design for a multi-floor office office building, incorporating cabling routes, active device placements, and budget sheets.",
@@ -107,7 +107,7 @@ export const projects = [
   },
   {
     id: "net-vm-mapping",
-    category: "Networking",
+    category: "Cybersecurity & Networking",
     title: "Network & PC Mapping using Virtual Machines",
     description:
       "Simulated and configured complex local network topologies using Virtual Machines (VMs) to perform accurate network discovery, IP routing configurations, and security validations.",
@@ -121,7 +121,7 @@ export const projects = [
   },
   {
     id: "net-kali-vm",
-    category: "Networking",
+    category: "Cybersecurity & Networking",
     title: "Kali Linux Penetration Testing & Virtual Networking Lab",
     description:
       "Configured and deployed a secure virtual environment to run Kali Linux, performing network penetration testing, vulnerability assessments, and traffic analysis.",
@@ -220,4 +220,13 @@ export const projects = [
   },
 ]
 
-export const categories = ["Programming", "Networking", "Multimedia", "Quality Assurance", "Certificate", "Awards and Honor"]
+export const categories = [
+  "Experience",
+  "Programming",
+  "Cybersecurity & Networking",
+  "Multimedia",
+  "Quality Assurance",
+  "Write Ups",
+  "Certificate",
+  "Awards and Honor",
+]

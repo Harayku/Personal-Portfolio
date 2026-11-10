@@ -1,43 +1,13 @@
 /**
- * CategoryFilter — Pill-style category filter buttons + search bar
+ * CategoryFilter — Pill-style category filter buttons
  * Props:
  *   categories   — string[]
  *   active       — currently selected category string
  *   onChange     — (category: string) => void
- *   search       — current search string
- *   onSearch     — (query: string) => void
  */
-import { Search, X } from "lucide-react"
-
-export default function CategoryFilter({ categories, active, onChange, search, onSearch }) {
+export default function CategoryFilter({ categories, active, onChange }) {
   return (
     <div className="flex flex-col gap-4">
-      {/* Search bar */}
-      <div className="relative max-w-sm w-full mx-auto md:mx-0">
-        <label htmlFor="project-search" className="sr-only">Search projects</label>
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" aria-hidden="true">
-          <Search size={16} />
-        </span>
-        <input
-          id="project-search"
-          type="search"
-          value={search}
-          onChange={(e) => onSearch(e.target.value)}
-          placeholder="Search projects…"
-          className="input-field pl-9 pr-9 text-sm"
-          aria-label="Search projects by name or technology"
-        />
-        {search && (
-          <button
-            onClick={() => onSearch("")}
-            aria-label="Clear search"
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900 dark:text-white transition-colors"
-          >
-            <X size={15} aria-hidden="true" />
-          </button>
-        )}
-      </div>
-
       {/* Category pills */}
       <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
         {categories.map((cat) => {

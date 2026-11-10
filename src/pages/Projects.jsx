@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { useSearchParams, Link } from "react-router-dom"
-import { ChevronRight, ChevronLeft, Copy, ChevronDown, ExternalLink } from "lucide-react"
+import { ChevronRight, ChevronLeft, Copy, ExternalLink } from "lucide-react"
 import { GithubIcon } from "../components/SocialIcons"
 import { projects } from "../data/projects"
 
@@ -21,7 +21,25 @@ export default function Projects() {
       if (!map[p.category]) map[p.category] = []
       map[p.category].push(p)
     })
-    return map
+
+    const categoryOrder = [
+      "Experience",
+      "Programming",
+      "Cybersecurity & Networking",
+      "Multimedia",
+      "Quality Assurance",
+      "Write Ups",
+    ]
+
+    const sortedMap = {}
+    categoryOrder.forEach(cat => {
+      if (map[cat]) sortedMap[cat] = map[cat]
+    })
+    Object.keys(map).forEach(cat => {
+      if (!sortedMap[cat]) sortedMap[cat] = map[cat]
+    })
+
+    return sortedMap
   }, [])
 
   // View: Single Project Details

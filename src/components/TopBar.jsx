@@ -1,4 +1,4 @@
-import { Search, Mail, FileText } from "lucide-react"
+import { Mail, FileText } from "lucide-react"
 import { GithubIcon, LinkedinIcon } from "./SocialIcons"
 import { about } from "../data/about"
 
@@ -8,13 +8,10 @@ export default function TopBar() {
       <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded bg-transparent flex items-center justify-center overflow-hidden border border-[#2a2b2f]">
-            <img src={about.avatar} alt="Harayku Logo" className="w-full h-full object-cover" />
-          </div>
           <span className="text-white font-bold text-[15px] tracking-wide">Harayku</span>
         </div>
 
-        {/* Right side links & Search */}
+        {/* Right side links */}
         <div className="hidden md:flex items-center gap-6">
           <nav className="flex items-center gap-5 text-[13px] font-medium text-[#9a9a9a]">
             <a href={about.github} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-white transition-colors">
@@ -34,16 +31,6 @@ export default function TopBar() {
               <span>Contact</span>
             </a>
           </nav>
-
-          {/* Search Placeholder */}
-          <div className="relative flex items-center">
-            <Search size={14} className="absolute left-3 text-[#5a5a5a]" />
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              className="h-8 bg-transparent border border-[#3a3a40] rounded-md pl-9 pr-4 text-[13px] text-white focus:outline-none focus:border-[#5a5a60] w-48 transition-colors"
-            />
-          </div>
         </div>
       </div>
     </div>

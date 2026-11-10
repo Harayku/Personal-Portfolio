@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { MapPin, GraduationCap, FileText, ExternalLink, ChevronRight, Mail } from "lucide-react"
+import { MapPin, GraduationCap, FileText, ExternalLink, ChevronRight, Mail, Award } from "lucide-react"
 import { about } from "../data/about"
+import { certificates } from "../data/certificates"
 
 export default function Home() {
   const [showAllSkills, setShowAllSkills] = useState(false)
@@ -9,6 +10,19 @@ export default function Home() {
   const displayedSkills = showAllSkills
     ? about.skills
     : about.skills.filter(skill => defaultCategories.includes(skill.group))
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return ""
+    try {
+      const [year, month, day] = dateStr.split("-").map(Number)
+      const date = new Date(year, month - 1, day)
+      return date.toLocaleDateString("en-US", { month: "short", year: "numeric" })
+    } catch {
+      return dateStr
+    }
+  }
+
+  const certList = certificates.filter(cert => cert.category === "Certificate")
 
   return (
     <main className="min-h-screen font-sans pb-24 animate-fade-in" style={{ animationDuration: "0.6s" }}>
@@ -93,51 +107,70 @@ export default function Home() {
               <FileText size={18} className="text-blue-500" />
               Certificates
             </h3>
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30 max-w-md">
-                <a
-                  href="/certs/THM-PreSecurity.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-slate-950 flex items-center justify-center relative group cursor-pointer"
-                  title="View PDF Certificate"
-                >
-                  <img
-                    src="/certs/THM-PreSecurity.jpg"
-                    alt="TryHackMe Pre-Security Certificate Preview"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <ExternalLink size={14} className="text-white drop-shadow-md" />
-                  </div>
-                </a>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1">
-                    Pre-Security Pathway Certificate
-                  </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    TryHackMe • Completed May 2026
-                  </p>
-                  <div className="flex items-center gap-4 mt-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {certList.map((cert) => {
+                const imageSrc = cert.badgeUrl || (cert.pdfUrl && (cert.pdfUrl.endsWith('.png') || cert.pdfUrl.endsWith('.jpg')) ? cert.pdfUrl : null)
+
+                return (
+                  <div
+                    key={cert.id}
+                    className="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-900/30 hover:border-slate-300 dark:hover:border-slate-700/80 transition-colors"
+                  >
                     <a
-                      href="/certs/THM-PreSecurity.pdf"
+                      href={cert.pdfUrl || cert.verifyUrl || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 uppercase tracking-wider transition-colors"
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-slate-950 flex items-center justify-center relative group cursor-pointer"
+                      title={cert.title}
                     >
-                      View PDF &gt;
+                      {imageSrc ? (
+                        <img
+                          src={imageSrc}
+                          alt={`${cert.title} preview`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-blue-500/10 text-blue-500 group-hover:scale-105 transition-transform duration-500">
+                          <Award size={26} />
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <ExternalLink size={14} className="text-white drop-shadow-md" />
+                      </div>
                     </a>
-                    <a
-                      href="https://tryhackme.com/certificate/THM-1IZIJPMKPE"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-400 hover:text-purple-300 uppercase tracking-wider transition-colors"
-                    >
-                      Verify Online &gt;
-                    </a>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1" title={cert.title}>
+                        {cert.title}
+                      </h4>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">
+                        {cert.issuer} {cert.date ? `• Completed ${formatDate(cert.date)}` : ""}
+                      </p>
+                      <div className="flex flex-wrap items-center gap-3 mt-2">
+                        {cert.pdfUrl && (
+                          <a
+                            href={cert.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 uppercase tracking-wider transition-colors"
+                          >
+                            {cert.pdfUrl.endsWith('.pdf') ? 'View PDF >' : 'View File >'}
+                          </a>
+                        )}
+                        {cert.verifyUrl && (
+                          <a
+                            href={cert.verifyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-400 hover:text-purple-300 uppercase tracking-wider transition-colors"
+                          >
+                            Verify Online &gt;
+                          </a>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                )
+              })}
             </div>
           </div>
         </section>
