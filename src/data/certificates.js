@@ -160,7 +160,7 @@ export const certificates = [
     description:
       "Completed the comprehensive 95-hour Jr Penetration Tester learning pathway on TryHackMe, covering hands-on methodology in web application security, network penetration testing, privilege escalation, and vulnerability assessment.",
     skills: ["Penetration Testing", "Web Application Security", "Privilege Escalation", "Vulnerability Assessment", "Metasploit", "Burp Suite"],
-    badgeUrl: null,
+    badgeUrl: "/certs/THM-JrPenetrationTester.jpg",
     pdfUrl: "/certs/THM-JrPenetrationTester.pdf",
     verifyUrl: "https://tryhackme.com/certificate/THM-W26URA5B79",
     category: "Certificate",
@@ -177,7 +177,7 @@ export const certificates = [
     description:
       "Completed the 45-hour Cyber Security 101 pathway on TryHackMe, mastering fundamental defensive security, offensive concepts, network security architecture, and system security practices.",
     skills: ["Cybersecurity Fundamentals", "Network Security", "Web Security", "Offensive Security", "Defensive Security"],
-    badgeUrl: null,
+    badgeUrl: "/certs/THM-CyberSecurity.jpg",
     pdfUrl: "/certs/THM-CyberSecurity.pdf",
     verifyUrl: "https://tryhackme.com/certificate/THM-XFLMQBADP0",
     category: "Certificate",
@@ -194,7 +194,7 @@ export const certificates = [
     description:
       "Earned the Certified Cybersecurity Professional (CCP) credential from Appkademiya, validating expertise across core cybersecurity principles, threat management, risk mitigation, and industry compliance standards.",
     skills: ["Cybersecurity", "Information Security", "Security Architecture", "Vulnerability Management", "Compliance"],
-    badgeUrl: null,
+    badgeUrl: "/certs/Appkademiya-CCP.jpg",
     pdfUrl: "/certs/Appkademiya-CCP.pdf",
     verifyUrl: "https://appkademiya.online/verify/CERT-CCP-CYBERSECURITY-PROFESSIONAL-20260916-4E1BE9C72885",
     category: "Certificate",
@@ -228,7 +228,7 @@ export const certificates = [
     description:
       "Completed Cisco Networking Academy's Getting Started with Cisco Packet Tracer course, developing hands-on simulation skills in creating, configuring, and troubleshooting network topologies.",
     skills: ["Cisco Packet Tracer", "Network Simulation", "Networking Fundamentals", "Routing & Switching"],
-    badgeUrl: null,
+    badgeUrl: "/certs/Cisco_Getting_Started_With_CPT.jpg",
     pdfUrl: "/certs/Cisco_Getting_Started_With_CPT.pdf",
     verifyUrl: null,
     category: "Certificate",

@@ -1,15 +1,8 @@
-import { useState } from "react"
-import { MapPin, GraduationCap, FileText, ExternalLink, ChevronRight, Mail, Award } from "lucide-react"
+import { MapPin, GraduationCap, FileText, ExternalLink, Mail, Award } from "lucide-react"
 import { about } from "../data/about"
 import { certificates } from "../data/certificates"
 
 export default function Home() {
-  const [showAllSkills, setShowAllSkills] = useState(false)
-
-  const defaultCategories = ["Cybersecurity", "Programming", "Frameworks & Libraries"]
-  const displayedSkills = showAllSkills
-    ? about.skills
-    : about.skills.filter(skill => defaultCategories.includes(skill.group))
 
   const formatDate = (dateStr) => {
     if (!dateStr) return ""
@@ -179,18 +172,12 @@ export default function Home() {
 
         {/* TECH STACK */}
         <section className="mb-20">
-          <div className="flex items-center justify-between mb-8">
+          <div className="mb-8">
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Tech Stack</h2>
-            <button
-              onClick={() => setShowAllSkills(!showAllSkills)}
-              className="text-sm font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1"
-            >
-              {showAllSkills ? "Show Less" : "View All"} <ChevronRight size={16} />
-            </button>
           </div>
 
           <div className="space-y-8">
-            {displayedSkills.map((skillGroup) => (
+            {about.skills.map((skillGroup) => (
               <div key={skillGroup.group}>
                 <h3 className="text-[15px] font-bold mb-3 text-slate-900 dark:text-slate-100">
                   {skillGroup.group}

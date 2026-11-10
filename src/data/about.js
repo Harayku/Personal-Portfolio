@@ -41,7 +41,16 @@ export const about = {
   skills: [
     {
       group: "Networking",
-      items: ["VLANs / Trunking", "OSPF / RIP", "Packet Tracer"],
+      items: [
+        "VLAN",
+        "Routing (OSPF / RIP)",
+        "SD-WAN (Versa)",
+        "Firewalls (WatchGuard & Sophos)",
+        "EDR / XDR / MDR / NDR",
+        "PBX Systems",
+        "FDAS",
+        "Packet Tracer",
+      ],
     },
     {
       group: "Cybersecurity",
@@ -56,8 +65,12 @@ export const about = {
       items: ["Laravel", "ReactJS", "ASP.NET", "Unity", "TailwindCSS", "Bootstrap", "Shadcn/ui", "alpine.js"],
     },
     {
-      group: "Multimedia",
-      items: ["Canva", "Photoshop", "Figma", "Aseprite", "Capcut", "Premiere Pro", "After Effects", "Illustrator"],
+      group: "AI & Automation",
+      items: ["Claude", "Codex", "Anti-Gravity", "MCP", "AI Agents", "Google Studio", "Google Flow"],
+    },
+    {
+      group: "Tools & Platforms",
+      items: ["Git / GitHub", "Linux", "VS Code", "Windows", "Microsoft Office", "Cisco Packet Tracer", "Swagger", "Vite"],
     },
     {
       group: "Database",
@@ -72,8 +85,8 @@ export const about = {
       items: ["Jira", "Trello", "MS Teams", "Discord"],
     },
     {
-      group: "Tools & Platforms",
-      items: ["Git / GitHub", "Linux", "VS Code", "Anti-Gravity", "Windows", "Microsoft Office", "Cisco Packet Tracer", "Swagger", "Vite"],
+      group: "Multimedia",
+      items: ["Canva", "Photoshop", "Figma", "Aseprite", "Capcut", "Premiere Pro", "After Effects", "Illustrator"],
     },
   ],
 
